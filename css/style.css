@@ -830,7 +830,7 @@ Blog list section
 
 .small-blog-list .sb-text .sb-metas .sb-meta:after {
 	position: absolute;
-	content: "|";
+	/*content: "|";*/
 	right: 0;
 	top: 0;
 	color: #8c8c8c;
