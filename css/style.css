@@ -654,7 +654,7 @@ Header section
 
 .latest-news-widget .ln-text .ln-metas .ln-meta:after {
 	position: absolute;
-	content: "|";
+	/*content: "|";*/
 	right: 0;
 	top: 0;
 	color: #8c8c8c;
