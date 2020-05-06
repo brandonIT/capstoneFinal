@@ -465,7 +465,7 @@ Header section
 
 .blog-post .post-metas .post-meta:after {
 	position: absolute;
-	content: "|";
+	/*content: "|";*/
 	right: 0;
 	top: 0;
 	color: #8c8c8c;
@@ -1034,7 +1034,7 @@ Other pages
 	height: 4px;
 	bottom: 0;
 	left: calc(50% - 35px);
-	background: #10ddb4;
+	background: #33cc33;
 }
 
 .site-pagination a {
@@ -1056,7 +1056,7 @@ Other pages
 }
 
 .site-pagination a.active {
-	color: #10ddb4;
+	color: #33cc33;
 }
 
 /* ----------------
