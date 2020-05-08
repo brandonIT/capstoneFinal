@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="container">
+
+				<div v-for="(event) in events">
+					<h1>{{event.name}}</h1>
+					<h3>{{event.date}}</h3>
+					<p>{{event.description}}</p>
+					<span v-if="event.blogLink != 'N/A'">
+						<a :href="event.blogLink">Read Our Blog</a>
+					</span>
+					<br>
+					<span v-if="event.eventLink != 'N/A'">
+						<a :href="event.eventLink">Learn More</a>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var url = 'https://app.fakejson.com/q/Ce77jUtM?token=0Kx7Q8ciy6IeVpDqaRRmew';
+			var vm = new Vue({
+				el: '#app',
+				data:{ 
+					events: []
+				},
+				created: function(){
+                    this.fetchEvents();
+                },
+                methods:{
+                    fetchEvents: function(){
+                        axios.get(url).then(
+                            function(res){
+                                console.log(res.data.events);
+                                vm.events = res.data.events;
+                            }
+                        );
+					}
+				}
+            });
+		</script>
+	</body>
+</html>

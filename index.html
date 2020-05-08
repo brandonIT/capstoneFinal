@@ -24,7 +24,9 @@
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="css/style.css"/>
 
-
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -241,7 +243,7 @@
 									<div class="sb-meta"><a href="#"></a></div>
 									<div class="sb-meta"></div>
 								</div>
-								<!--needs to be 3 lines, no more, no less--><p style="font-size: 20px;">The new languages of the Internet. From simple buttons on webpages to full fledged video games, programming is what makes the wheels turn.</p>
+								<p style="font-size: 20px;">The new languages of the Internet. From simple buttons on webpages to full fledged video games, programming is what makes the wheels turn.</p>
 							</div>
 						</div>
 						<div class="sb-item">
@@ -282,68 +284,37 @@
 						</div>
 					</div>
 				</div>
+				
+				<!--Events Start-->
 				<div class="col-lg-4">
-					<div class="sb-widget">
+					<div class="sb-widget" id="stickyMenu">
 						<h2 id="events" class="sb-title">Upcoming IT Events</h2>
 						<div class="latest-news-widget top-five">
-							<div class="ln-item">
-								<div class="ln-index">05/24</div>
-								<img src="img/blog-thumbs/1.jpg" alt="">
-								<div class="ln-text">
-									<h6>Event 1</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">Stuff about the event yoStuff about the. event yoStuff about the event yoStuff.</div>
-										<br><div class="ln-meta"><a style="cursor: default; color: #5da9e4;">Programming</a></div><!--Font colors should match the circles-->
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<div class="ln-index">05/24</div>
-								<img src="img/blog-thumbs/2.jpg" alt="">
-								<div class="ln-text">
-									<h6>Event 2</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">Stuff about the event yoStuff about the. event yoStuff about the event yoStuff.</div>
-										<br><div class="ln-meta"><a style="cursor: default; color: #ff5581;">Cloud</a></div><!--Font colors should match the circles-->
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<div class="ln-index">05/24</div>
-								<img src="img/blog-thumbs/3.jpg" alt="">
-								<div class="ln-text">
-									<h6>Event 3</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">Stuff about the event yoStuff about the. event yoStuff about the event yoStuff.</div>
-										<br><div class="ln-meta"><a style="cursor: default; color: #bd9bd2;">Networking</a></div><!--Font colors should match the circles-->
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<div class="ln-index">05/24</div>
-								<img src="img/blog-thumbs/4.jpg" alt="">
-								<div class="ln-text">
-									<h6>Event 4</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">Stuff about the event yoStuff about the. event yoStuff about the event yoStuff.</div>
-										<br><div class="ln-meta"><a style="cursor: default; color: #33cc33;">Security</a></div><!--Font colors should match the circles-->
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<div class="ln-index">05/24</div>
-								<img src="img/blog-thumbs/5.jpg" alt="">
-								<div class="ln-text">
-									<h6>Event 5</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">Stuff about the event yoStuff about the. event yoStuff about the event yoStuff.</div>
-										<br><div class="ln-meta"><a style="cursor: default; color: #ebd634;">Other</a></div><!--Font colors should match the circles-->
+									<div id="app">
+										<div v-for="eventItem in eventsArray" class="ln-item">
+											<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+											<img src="img/blog-thumbs/1.jpg" alt="">
+											<div class="ln-text">
+												<h6>{{eventItem.name}}</h6>
+												<div class="ln-metas">
+													<div class="ln-meta">{{eventItem.description}}</div>
+												<br><div class="ln-meta"><a style="cursor: default; color: #5da9e4;">{{eventItem.tag}}</a></div>
+											<!--<span v-if="eventItem.blogLink != 'N/A'">
+												<a :href="eventItem.blogLink">Read Our Blog</a>
+											</span><br>
+											<span v-if="eventItem.eventLink != 'N/A'">
+												<a :href="eventItem.eventLink">Learn More</a>
+											</span>-->
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<!--Events End-->
+				
 			</div>
 		</div>
 	</section>
@@ -367,6 +338,29 @@
 	<script src="js/circle-progress.min.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+			var url = 'https://app.fakejson.com/q/Ce77jUtM?token=0Kx7Q8ciy6IeVpDqaRRmew';
+			var vm = new Vue({
+				el: '#app',
+				data:{ 
+					eventsArray: [],
+					message: "hello"
+				},
+				created: function(){
+                    this.fetchEvents();
+                },
+                methods:{
+                    fetchEvents: function(){
+                        axios.get(url).then(
+                            function(res){
+                                /*console.log(res.data.events);*/
+								vm.eventsArray = res.data.events;
+                            }
+                        );
+					}
+				}
+            });
+		</script>
 
 	</body>
 </html>
