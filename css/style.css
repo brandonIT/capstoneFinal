@@ -234,6 +234,12 @@ Header section
 .site-logo {
 	display: inline-block;
 	padding: 21px 55px 20px;
+	background: #353535;
+}
+
+.site-logo:hover {
+	display: inline-block;
+	padding: 21px 55px 20px;
 	background: #222222;
 }
 
@@ -937,12 +943,18 @@ Footer section
 
 .copyright {
 	color: #8c8c8c;
-	font-size: 16px;
+	font-size: 12px;
 	padding: 35px 0 30px;
 }
 
 .copyright a {
 	color: #8c8c8c;
+	font-size: 12px;
+}
+
+.copyright p {
+	color: #8c8c8c;
+	font-size: 12px;
 }
 
 .copyright a:hover {
