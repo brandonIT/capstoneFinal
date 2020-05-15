@@ -458,7 +458,19 @@ Header section
 /*------------------
    Blog-section
  ---------------------*/
+/*New stuff here*/
+#blogs
+{
+	color: #FFFFFF;
+}
 
+#blogs:hover
+{
+	padding: 21px 55px 20px;
+	background-color: #222222;
+	color: #bbbbbb;
+}
+/*New stuff ends here*/
 .blog-section {
 	background: #1c1c1c;
 }
