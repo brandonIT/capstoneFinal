@@ -58,7 +58,7 @@
 			<li><a href="#blogs">Networking</a></li>
 			<li><a href="#blogs">Security</a></li>
 			<li><a href="#events">Events</a></li>
-			<li><a href="news.html">Blogs</a></li>
+			<li><a href="blogs.html">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 			<!--single-post.html blogs-->
 		</ul>
@@ -97,253 +97,164 @@
 	</section>
 	<!-- Hero section end -->
 
-	<!-- Blog section -->
-	<section class="blog-section spad">
-	<center><h3><a href="news.html" id="blogs" class="hoverCar">Blogs</a></h3></center><br><br><br><br>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 blog-posts">
-					<div class="blog-post featured-post">
-						<img src="img/blog/1.jpg" alt="">
-						<div class="post-date" style="background-color: #b0b0b0;">5/13/2020</div>
-						<h3>The Best Games of 2019</h3>
-						<div class="post-metas">
-							<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">Brandon</a></div>
-							<!--
-							<div class="ln-meta" v-if="blog.author == 'Brandon'">
-														<a href="#" style="color: rgb(170,30,100);">{{blog.author}}</a></div>
-													<div class="ln-meta" v-if="blog.author == 'Evan'">
-														<a href="#" style="color: rgb(170,30,100);">{{blog.author}}</a></div>
-													<div class="ln-meta" v-if="blog.author == 'Winter'">
-														<a href="#" style="color: rgb(170,30,100);">{{blog.author}}</a></div>
-							-->
-							<div class="post-meta">category:&nbsp;<a href="#" style="color: #5da9e4;">Programming</a></div>
-							<div class="post-meta"></div>
-						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Morbi id dictum quam, ut commodo lorem. In at nisi nec arcu porttitor aliquet vitae at dui. </p>
-						<a href="#" class="site-btn" style="color: 'black';">Read More</a>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="blog-post">
-								<img src="img/blog/2.jpg" alt="">
-								<div class="post-date" style="background-color: #b0b0b0;">5/12/2020</div>
-								<h4>10 Amazing New Games</h4>
-								<div class="post-metas">
-									<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#evan" style="color: rgb(170,30,100)">Evan</a></div>
-									<div class="post-meta">category:&nbsp;<a href="#" style="color: #bd9bd2;">Networking</a></div>
-									<div class="post-meta"></div>
+	<div id="app">
+		<!-- Blog section -->
+		<section class="blog-section spad">
+		<center><h3><a href="news.html" id="blogs" class="hoverCar">Blogs</a></h3></center><br><br><br><br>
+			<div class="container">
+				<div class="row">
+					<div v-for="(blog) in blogs" class="col-md-6 blog-posts">
+						<div class="blog-post featured-post">
+							<img src="img/blog/1.jpg" alt="">
+							<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
+							<h3>{{blog.title}}</h3>
+							<div class="post-metas">
+								<!--<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">{{blog.author}}</a></div>-->
+								
+								<div class="ln-meta" v-if="blog.author == 'Brandon'">
+									<a href="#" style="color: rgb(204,119,34);">{{blog.author}}</a>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-								<a href="#" class="read-more" style="color: #ebd634;">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="blog-post">
-								<img src="img/blog/3.jpg" alt="">
-								<div class="post-date" style="background-color: #b0b0b0;">5/11/2020</div>
-								<h4>Tips to Play a Better Game</h4>
-								<div class="post-metas">
-									<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#winter" style="color: rgb(1,121,111)">Winter</a></div>
-									<div class="post-meta">category:&nbsp;<a href="#" style="color: #ff5581;">Cloud</a></div>
-									<div class="post-meta"></div>
+								<div class="ln-meta" v-if="blog.author == 'Evan'">
+									<a href="#" style="color: rgb(170,30,100);">{{blog.author}}</a>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-								<a href="#" class="read-more" style="color: #ebd634;">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="blog-post">
-								<img src="img/blog/4.jpg" alt="">
-								<div class="post-date" style="background-color: #b0b0b0;">5/10/2020</div>
-								<h4>Tips to Improve Reaction Speed</h4>
-								<div class="post-metas">
-									<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">Brandon</a></div>
-									<div class="post-meta">category:&nbsp;<a href="#" style="color: #33cc33;">Security</a></div>
-									<div class="post-meta"></div>
+								<div class="ln-meta" v-if="blog.author == 'Winter'">
+									<a href="#" style="color: rgb(1,121,111);">{{blog.author}}</a>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-								<a href="#" class="read-more" style="color: #ebd634;">Read More</a>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="blog-post">
-								<img src="img/blog/5.jpg" alt="">
-								<div class="post-date" style="background-color: #b0b0b0;">5/9/2020</div>
-								<h4>The Scariest Games of 2019</h4>
-								<div class="post-metas">
-									<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#evan" style="color: rgb(170,30,100)">Evan</a></div>
-									<div class="post-meta">category:&nbsp;<a href="#" style="color: #bd9bd2;">Networking</a></div>
-									<div class="post-meta"></div>
+								
+								<div class="post-meta">category:&nbsp;
+									<span v-for="(tag) in blog.tags">
+										<span v-if="tag == 'Programming'">
+											<a href="#" style="color: #5da9e4;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Networking'">
+											<a href="#" style="color: #bd9bd2;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Cloud'">
+											<a href="#" style="color: #ff5581;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Security'">
+											<a href="#" style="color: #33cc33;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Other'">
+											<a href="#" style="color: #ff94f3;">{{tag}}</a>
+										</span>
+									</span>
 								</div>
-								<p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum susp-endisse ultrices gravida. Risus commodo.</p>
-								<a href="#" class="read-more" style="color: #ebd634;">Read More</a>
+								<div class="post-meta"></div>
 							</div>
+							<p>{{blog.exerpt}}</p>
+							<a href="single-post.html?blog=blog" class="site-btn" style="color: 'black';">Read More</a>
 						</div>
 					</div>
-				</div>
-				<!--Start of sidebar-->
-				<div class="col-lg-4 sidebar" id="sidebar">
-					<div class="sb-widget" id="stickyMenu">
-						<h2 class="sb-title">Latest Blogs</h2>
-						<div class="latest-news-widget">
-							<div class="ln-item">
-								<img src="img/blog-thumbs/1.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date" style="background-color: #b0b0b0;">5/13/2020</div>
-									<h6>The Best Games of 2019</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">Brandon</a></div>
-										<div class="ln-meta">category:&nbsp;<a href="#sidebar" style="color: #5da9e4;">Programming</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/2.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date" style="background-color: #b0b0b0;">5/12/2020</div>
-									<h6>10 Amazing New Games</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">by&nbsp; - &nbsp;<a href="characters.html#evan" style="color: rgb(170,30,100)">Evan</a></div>
-										<div class="ln-meta">category:&nbsp;<a href="#sidebar" style="color: #bd9bd2;">Networking</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/3.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date" style="background-color: #b0b0b0;">5/11/2020</div>
-									<h6>Tips to Play a Better Game</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">by&nbsp; - &nbsp;<a href="characters.html#winter" style="color: rgb(1,121,111)">Winter</a></div>
-										<div class="ln-meta">category:&nbsp;<a href="#sidebar" style="color: #ff5581;">Cloud</a></div>
-									</div>
-								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/4.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date" style="background-color: #b0b0b0;">5/10/2020</div>
-									<h6>Tips to Improve Reaction Speed</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">Brandon</a></div>
-										<div class="ln-meta">category:&nbsp;<a href="#sidebar" style="color: #33cc33;">Security</a></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--End of sidebar-->
+						<!--End of sidebar-->
 					<div class="sb-widget">
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- Blog section end -->
+		</section>
+		<!-- Blog section end -->
 
-	<!-- Blog list section -->
-	<section class="blog-list-section spad">
-	<center><h3 id="body" style="color: white;">An Overview of Information Technology</h3></center><br><br><br><br>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="small-blog-list">
-						<div class="sb-item">
-							<img src="img/blog-thumbs/6.jpg" alt="">
-							<div class="sb-text">
-								<h6><a href="#body" id="programming" style="font-size: 25px; color: #5da9e4;">Programming</a></h6>
-								<div class="sb-metas" style="cursor: default;">
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
+		<!-- Blog list section -->
+		<section class="blog-list-section spad">
+		<center><h3 id="body" style="color: white;">An Overview of Information Technology</h3></center><br><br><br><br>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="small-blog-list">
+							<div class="sb-item">
+								<img src="img/blog-thumbs/6.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="#body" id="programming" style="font-size: 25px; color: #5da9e4;">Programming</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px;">The new languages of the Internet. From simple buttons on webpages to full fledged video games, programming is what makes the wheels turn.</p>
 								</div>
-								<p style="font-size: 20px;">The new languages of the Internet. From simple buttons on webpages to full fledged video games, programming is what makes the wheels turn.</p>
 							</div>
-						</div>
-						<div class="sb-item">
-							<img src="img/blog-thumbs/7.jpg" alt="">
-							<div class="sb-text">
-								<h6><a href="#body" id="cloud" style="font-size: 25px; color: #ff5581;">Cloud</a></h6>
-								<div class="sb-metas" style="cursor: default;">
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/7.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="#body" id="cloud" style="font-size: 25px; color: #ff5581;">Cloud</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px;">Instantly control thousands of servers. Netflix, Hulu, and Disney Plus live in the cloud. Pay for the servers you control by the second.</p>
 								</div>
-								<p style="font-size: 20px;">Instantly control thousands of servers. Netflix, Hulu, and Disney Plus live in the cloud. Pay for the servers you control by the second.</p>
 							</div>
-						</div>
-						<div class="sb-item">
-							<img src="img/blog-thumbs/8.jpg" alt="">
-							<div class="sb-text">
-								<h6><a href="#body" id="networking" style="font-size: 25px; color: #bd9bd2;">Networking</a></h6>
-								<div class="sb-metas" style="cursor: default;">
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/8.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="#body" id="networking" style="font-size: 25px; color: #bd9bd2;">Networking</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px;">The circuits and steel of all technology. The body that the code brings to life. The bridges of all information. Cabling and physical objects/devices.</p>
 								</div>
-								<p style="font-size: 20px;">The circuits and steel of all technology. The body that the code brings to life. The bridges of all information. Cabling and physical objects/devices.</p>
 							</div>
-						</div>
-						<div class="sb-item">
-							<img src="img/blog-thumbs/9.jpg" alt="">
-							<div class="sb-text">
-								<h6><a href="#body" id="security" style="font-size: 25px; color: #33cc33;">Security</a></h6>
-								<div class="sb-metas" style="cursor: default;">
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
-									<div class="sb-meta" style="cursor: default;"></div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/9.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="#body" id="security" style="font-size: 25px; color: #33cc33;">Security</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px;">The  Gatekeepers and Hackers. Good versus Evil. The frontlines of protection. The constant war waged across the whole Internet.</p>
 								</div>
-								<p style="font-size: 20px;">The  Gatekeepers and Hackers. Good versus Evil. The frontlines of protection. The constant war waged across the whole Internet.</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				<!--Events Start-->
-				<div class="col-lg-4">
-					<div class="sb-widget" id="stickyMenu">
-						<h2 id="events" class="sb-title">Upcoming IT Events</h2>
-						<div class="latest-news-widget top-five">
-									<div id="app">
-										<div v-for="eventItem in eventsArray" class="ln-item">
-											<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
-											<img src="img/blog-thumbs/1.jpg" alt="">
-											<div class="ln-text">
-												<h6>{{eventItem.name}}</h6>
-												<div class="ln-metas">
-													<div class="ln-meta">{{eventItem.description}}</div><br>
-																			<!--if's-->
-													<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
-														<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
-													<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
-														<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
-													<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
-														<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
-													<div class="ln-meta" v-if="eventItem.tag == 'Security'">
-														<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
-													<div class="ln-meta" v-if="eventItem.tag == 'Other'">
-														<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
-											<!--<span v-if="eventItem.blogLink != 'N/A'">
-												<a :href="eventItem.blogLink">Read Our Blog</a>
-											</span><br>
-											<span v-if="eventItem.eventLink != 'N/A'">
-												<a :href="eventItem.eventLink">Learn More</a>
-											</span>-->
+					
+					<!--Events Start-->
+					<div class="col-lg-4">
+						<div class="sb-widget" id="stickyMenu">
+							<h2 id="events" class="sb-title">Upcoming IT Events</h2>
+							<div class="latest-news-widget top-five">
+											<div v-for="eventItem in eventsArray" class="ln-item">
+												<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+												<img src="img/blog-thumbs/1.jpg" alt="">
+												<div class="ln-text">
+													<h6>{{eventItem.name}}</h6>
+													<div class="ln-metas">
+														<div class="ln-meta">{{eventItem.description}}</div><br>
+																				<!--if's-->
+														<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
+															<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
+														<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
+															<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
+														<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
+															<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
+														<div class="ln-meta" v-if="eventItem.tag == 'Security'">
+															<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
+														<div class="ln-meta" v-if="eventItem.tag == 'Other'">
+															<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
+												<!--<span v-if="eventItem.blogLink != 'N/A'">
+													<a :href="eventItem.blogLink">Read Our Blog</a>
+												</span><br>
+												<span v-if="eventItem.eventLink != 'N/A'">
+													<a :href="eventItem.eventLink">Learn More</a>
+												</span>-->
+												</div>
 											</div>
-										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!--Events End-->
+					
 				</div>
-				<!--Events End-->
-				
 			</div>
-		</div>
-	</section>
-	<!-- Blog list section end -->
+		</section>
+		<!-- Blog list section end -->
+	</div>
 
 	<!-- Footer section -->
 	<div class="footer-section">
@@ -373,6 +284,7 @@
 				el: '#app',
 				data:{ 
 					eventsArray: [],
+					blogs:[],
 					message: "hello"
 				},
 				created: function(){
@@ -384,6 +296,7 @@
                             function(res){
                                 /*console.log(res.data.events);*/
 								vm.eventsArray = res.data.events;
+								vm.blogs = res.data.blogs;
                             }
                         );
 					}

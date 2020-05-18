@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<title>{{blog.title}}</title>
+	<title>Blog</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="IT Heroes">
 	<meta name="keywords" content="gaming, html">
@@ -38,116 +38,116 @@
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
+	<div id="app">
+		<!-- Header section -->
+		<header class="header-section">
+			<a href="index.html" class="site-logo">
+				<img src="img/logoGoodlyDid.png" alt="logo">
+			</a>
+			<ul class="main-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="index.html#programming">Programming</a></li>
+				<li><a href="index.html#cloud">Cloud</a></li>
+				<li><a href="index.html#networking">Networking</a></li>
+				<li><a href="index.html#security">Security</a></li>
+				<li><a href="index.html#events">Events</a></li>
+				<li><a href="blogs.html">Blogs</a></li>
+				<li><a href="characters.html">About Us</a></li>
+				<!--single-post.html blogs-->
+			</ul>
+		</header>
+		<!-- Header section end -->
 
-	<!-- Header section -->
-	<header class="header-section">
-		<a href="index.html" class="site-logo">
-			<img src="img/logoGoodlyDid.png" alt="logo">
-		</a>
-		<ul class="main-menu">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="index.html#programming">Programming</a></li>
-			<li><a href="index.html#cloud">Cloud</a></li>
-			<li><a href="index.html#networking">Networking</a></li>
-			<li><a href="index.html#security">Security</a></li>
-			<li><a href="index.html#events">Events</a></li>
-			<li><a href="news.html">Blogs</a></li>
-			<li><a href="characters.html">About Us</a></li>
-			<!--single-post.html blogs-->
-		</ul>
-	</header>
-	<!-- Header section end -->
+		<!-- Page top section -->
+		<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
+				<div class="container">
+					<h2>{{blog.title}}</h2>
+				</div>
+		</section>
+		<!-- Page top section end -->
 
-	<!-- Page top section -->
-	<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
-		<div class="container">
-			<h2>{{blog.title}}</h2>
-		</div>
-	</section>
-	<!-- Page top section end -->
-
-	<!-- Blog section -->
-	<section class="blog-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="blog-post single-post">
-						<div id="app">
-							<div v-for="(blog) in blogs">
-								<img src="img/blog/1.jpg" alt="">
+		<!-- Blog section -->
+		<section class="blog-section spad">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="blog-post single-post">
+							<div>
+								<!--<img :src="blog.link" alt="">-->
 								<div class="post-date">{{blog.date}}</div>
 								<h3>{{blog.title}}</h3>
 								<div class="post-metas">
 									<div class="post-meta">{{blog.author}}</div>
-									<div class="post-meta">in <a href="#">{{blog.tag}}</a></div>
+									<div class="post-meta">
+										<span v-for="(tag) in blog.tags"><a href="#">{{tag}}</a></span>
+									</div>
 									<div class="post-meta"></div>
 								</div>
 								<p>{{blog.body}}</p>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-lg-4 sidebar">
-					<div class="sb-widget">
-						<h2 class="sb-title">Categories</h2>
-						<ul class="sb-cata-list">
-							<li><a href="">Games<span>20</span></a></li>
-							<li><a href="">Gaming Tips & Tricks<span>23</span></a></li>
-							<li><a href="">Online Games<span>25</span></a></li>
-							<li><a href="">Team Games<span>17</span></a></li>
-							<li><a href="">Community<span>15</span></a></li>
-							<li><a href="">Uncategorized<span>22</span></a></li>
-						</ul>
-						
-					</div>
-					<div class="sb-widget">
-						<h2 class="sb-title">Latest News</h2>
-						<div class="latest-news-widget">
-							<div class="ln-item">
-								<img src="img/blog-thumbs/1.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date">April 1, 2019</div>
-									<h6>10 Amazing new games</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">By Admin</div>
-										<div class="ln-meta">in <a href="#">Games</a></div>
-										<div class="ln-meta"></div>
+					<div class="col-lg-4 sidebar">
+						<div class="sb-widget">
+							<h2 class="sb-title">Categories</h2>
+							<ul class="sb-cata-list">
+								<li><a href="">Games<span>20</span></a></li>
+								<li><a href="">Gaming Tips & Tricks<span>23</span></a></li>
+								<li><a href="">Online Games<span>25</span></a></li>
+								<li><a href="">Team Games<span>17</span></a></li>
+								<li><a href="">Community<span>15</span></a></li>
+								<li><a href="">Uncategorized<span>22</span></a></li>
+							</ul>
+						</div>
+						<div class="sb-widget">
+							<h2 class="sb-title">Latest News</h2>
+							<div class="latest-news-widget">
+								<div class="ln-item">
+									<img src="img/blog-thumbs/1.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date">April 1, 2019</div>
+										<h6>10 Amazing new games</h6>
+										<div class="ln-metas">
+											<div class="ln-meta">By Admin</div>
+											<div class="ln-meta">in <a href="#">Games</a></div>
+											<div class="ln-meta"></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/2.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date">April 1, 2019</div>
-									<h6>10 Amazing new games</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">By Admin</div>
-										<div class="ln-meta">in <a href="#">Games</a></div>
-										<div class="ln-meta"></div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/2.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date">April 1, 2019</div>
+										<h6>10 Amazing new games</h6>
+										<div class="ln-metas">
+											<div class="ln-meta">By Admin</div>
+											<div class="ln-meta">in <a href="#">Games</a></div>
+											<div class="ln-meta"></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/3.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date">April 1, 2019</div>
-									<h6>10 Amazing new games</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">By Admin</div>
-										<div class="ln-meta">in <a href="#">Games</a></div>
-										<div class="ln-meta"></div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/3.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date">April 1, 2019</div>
+										<h6>10 Amazing new games</h6>
+										<div class="ln-metas">
+											<div class="ln-meta">By Admin</div>
+											<div class="ln-meta">in <a href="#">Games</a></div>
+											<div class="ln-meta"></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="ln-item">
-								<img src="img/blog-thumbs/4.jpg" alt="">
-								<div class="ln-text">
-									<div class="ln-date">April 1, 2019</div>
-									<h6>10 Amazing new games</h6>
-									<div class="ln-metas">
-										<div class="ln-meta">By Admin</div>
-										<div class="ln-meta">in <a href="#">Games</a></div>
-										<div class="ln-meta"></div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/4.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date">April 1, 2019</div>
+										<h6>10 Amazing new games</h6>
+										<div class="ln-metas">
+											<div class="ln-meta">By Admin</div>
+											<div class="ln-meta">in <a href="#">Games</a></div>
+											<div class="ln-meta"></div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -155,14 +155,14 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<!-- Blog section end -->
-	<div class="footer-section">
-		<div class="container">
-			<center><div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> <a style="cursor: default;">by</a> <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div></center>
+		</section>
+		<!-- Blog section end -->
+		<div class="footer-section">
+			<div class="container">
+				<center><div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> <a style="cursor: default;">by</a> <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div></center>
+			</div>
 		</div>
 	</div>
 	<!-- Footer section end -->
@@ -176,27 +176,27 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-			var url = 'https://capstone-b35a3.firebaseio.com/data.json';
 			var vm = new Vue({
 				el: '#app',
 				data:{ 
-					blogs: []
+					blog: Object
 				},
 				created: function(){
                     this.fetchBlogs();
                 },
                 methods:{
                     fetchBlogs: function(){
-                        axios.get(url).then(
-                            function(res){
-                                console.log(res.data.blogs);
-                                vm.blogs = res.data.blogs;
-                            }
-                        );
+						//console.log(window.location.search);
+						const urlParams = new URLSearchParams(window.location.search);
+						const id = urlParams.get('blog');
+						//console.log(id);
+                        axios.get('https://capstone-b35a3.firebaseio.com/data/blogs/'+id+'.json').then(res => {
+							console.log(res.data);
+							vm.blog = res.data;
+						});
 					}
 				}
             });
-		</script>
-
+	</script>
 	</body>
 </html>
