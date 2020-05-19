@@ -46,12 +46,12 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="index.html">Home</a></li>
-			<li><a href="index.html#programming">Programming</a></li>
-			<li><a href="index.html#cloud">Cloud</a></li>
-			<li><a href="index.html#networking">Networking</a></li>
-			<li><a href="index.html#security">Security</a></li>
+			<li><a href="#body">Programming</a></li>
+			<li><a href="#body">Cloud</a></li>
+			<li><a href="#body">Networking</a></li>
+			<li><a href="#body">Security</a></li>
 			<li><a href="index.html#events">Events</a></li>
-			<li><a href="blogs.html">Blogs</a></li>
+			<li><a href="#body">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 			<!--single-post.html blogs-->
 		</ul>
@@ -68,19 +68,18 @@
 
 		<!-- Blog section -->
 	
-	<section class="blog-section spad">
+	<section class="blog-section spad" id="body">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
 					<div id="app">
-						<div class="blog-post" v-for="(blog) in blogs">
-							<!--<img :src="blog.link">-->
-							<img src="img/1.jpg"/>
-							<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
-							<h3>{{blog.title}}</h3>
+						<div class="blog-post" v-for="(event) in events">
+							<img :src="event.image">
+							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
+							<h3>{{event.name}}</h3>
 							<div class="post-metas">
-								<div class="post-meta">{{blog.author}}</div>
-								<div class="post-meta" v-for="(tag) in blog.tags">
+								<div class="post-meta"></div>
+								<div class="post-meta" v-for="(tag) in events.tags">
 									<span v-if="tag == 'Programming'">
 										<a href="#" style="color: #5da9e4;">Programming</a>
 									</span>
@@ -98,14 +97,19 @@
 									</span>
 								</div>
 								<div class="post-meta"></div>
-								<p>{{blog.exerpt}}</p>
-								<a href="single-post.html?blog=0" class="site-btn" style="color: #000000;">Read More</a>
+								<p>{{event.description}}</p>
+								<p v-if="event.blogLink !='N/A'">
+									Read our blog about the event <a :href="event.blogLink"><a class="hoverCarText2" style="cursor: pointer;">here</a></a>
+								</p>
+								<div v-if="event.eventLink !='N/A'">
+									<a :href="event.eventLink" class="site-btn">Event Link</a>
+								</div>	
 							</div>
 						</div>
 					</div>
 				</div>
 				<br><br>
-				<div class="col-lg-4 sidebar" style="padding-left: 120px;">
+				<div class="col-lg-4 sidebar">
 					<div style="position: sticky; top: 15px;">
 						<div class="sb-widget">
 							<h2 class="sb-title">Categories</h2>
@@ -201,7 +205,7 @@
 		var vm = new Vue({
 			el: '#app',
 			data:{ 
-				blogs: [],
+				events: [],
 				tags:[]
 			},
 			created: function(){
@@ -211,8 +215,8 @@
 				fetchBlogs: function(){
 					axios.get(url).then(
 						function(res){
-							console.log(res.data.blogs);
-							vm.blogs = res.data.blogs;
+							console.log(res.data.events);
+							vm.events = res.data.events;
 						}
 					);
 				}
