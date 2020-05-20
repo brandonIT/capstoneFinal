@@ -36,9 +36,7 @@
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-	<div id="app">
+		<div class="loader"></div></div>
 		<!-- Header section -->
 		<header class="header-section">
 			<a href="index.html" class="site-logo">
@@ -57,96 +55,99 @@
 			</ul>
 		</header>
 		<!-- Header section end -->
+			<!-- Page top section -->
+			<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg"></section>
+			<!-- Page top section end -->
 
-		<!-- Page top section -->
-		<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
+			<!-- Blog section -->
+			<section class="blog-section spad">
 				<div class="container">
-					<h2>{{blog.title}}</h2>
-				</div>
-		</section>
-		<!-- Page top section end -->
-
-		<!-- Blog section -->
-		<section class="blog-section spad">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="blog-post single-post">
-							<div>
-								<!--<img :src="blog.link" alt="">-->
-								<div class="post-date">{{blog.date}}</div>
-								<h3>{{blog.title}}</h3>
-								<div class="post-metas">
-									<div class="post-meta">{{blog.author}}</div>
-									<div class="post-meta">
-										<span v-for="(tag) in blog.tags"><a href="#">{{tag}}</a></span>
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="blog-post single-post">
+								<div id="app">
+									<!--<img :src="blog.link" alt="">-->
+									<div class="post-date">{{blog.date}}</div>
+									<h3>{{blog.title}}</h3>
+									<div class="post-metas">
+										<div class="post-meta">
+											<div class="ln-meta" v-if="blog.author == 'Brandon'">
+												<a href="#" class="hoverCarText" style="color: rgb(204,119,34);">{{blog.author}}</a>
+											</div>
+											<div class="ln-meta" v-if="blog.author == 'Evan'">
+												<a href="#" class="hoverCarText" style="color: rgb(170,30,100);">{{blog.author}}</a>
+											</div>
+											<div class="ln-meta" v-if="blog.author == 'Winter'">
+												<a href="#" class="hoverCarText" style="color: rgb(1,121,111);">{{blog.author}}</a>
+											</div>
+										</div>
+										<div class="post-meta">
+											<div v-for="(tag) in blog.tags"><a href="#"></a>
+												<span v-if="tag == 'Programming'">
+												<a href="#" class="hoverCarText" style="color: #5da9e4;">Programming</a>
+												</span>
+												<span v-if="tag == 'Networking'">
+													<a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking</a>
+												</span>
+												<span v-if="tag == 'Cloud'">
+													<a href="#" class="hoverCarText" style="color: #ff5581;">Cloud</a>
+												</span >
+												<span v-if="tag == 'Other'">
+													<a href="#" class="hoverCarText" style="color: #ff94f3;">Other</a>
+												</span>
+												<span v-if="tag == 'Security'">
+													<a href="#" class="hoverCarText" style="color: #33cc33;">Security</a>
+												</span>
+											</div>
+										</div>
+										<div class="post-meta"></div>
 									</div>
-									<div class="post-meta"></div>
+									<p style="font-size: 20px; color: #FFFFFF;">{{blog.body}}</p>
 								</div>
-								<p>{{blog.body}}</p>
 							</div>
 						</div>
-					</div>
 					<div class="col-lg-4 sidebar">
-						<div class="sb-widget">
-							<h2 class="sb-title">Categories</h2>
-							<ul class="sb-cata-list">
-								<li><a href="">Games<span>20</span></a></li>
-								<li><a href="">Gaming Tips & Tricks<span>23</span></a></li>
-								<li><a href="">Online Games<span>25</span></a></li>
-								<li><a href="">Team Games<span>17</span></a></li>
-								<li><a href="">Community<span>15</span></a></li>
-								<li><a href="">Uncategorized<span>22</span></a></li>
-							</ul>
-						</div>
-						<div class="sb-widget">
-							<h2 class="sb-title">Latest News</h2>
-							<div class="latest-news-widget">
-								<div class="ln-item">
-									<img src="img/blog-thumbs/1.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date">April 1, 2019</div>
-										<h6>10 Amazing new games</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Admin</div>
-											<div class="ln-meta">in <a href="#">Games</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/2.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date">April 1, 2019</div>
-										<h6>10 Amazing new games</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Admin</div>
-											<div class="ln-meta">in <a href="#">Games</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/3.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date">April 1, 2019</div>
-										<h6>10 Amazing new games</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Admin</div>
-											<div class="ln-meta">in <a href="#">Games</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/4.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date">April 1, 2019</div>
-										<h6>10 Amazing new games</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Admin</div>
-											<div class="ln-meta">in <a href="#">Games</a></div>
-											<div class="ln-meta"></div>
+						<div style="position: sticky; top: 15px;">
+							<div class="sb-widget">
+								<h2 class="sb-title">Categories</h2>
+								<ul class="sb-cata-list">
+									<li><a href="#" class="hoverCarText" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
+								</ul>
+							</div>
+							<div class="sb-widget" id="appTwo">
+									<h2 class="sb-title">Upcoming IT Events</h2>
+									<div class="latest-news-widget top-five">
+										<div v-for="eventItem in eventsArray" class="ln-item">
+										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+										<img src="img/blog-thumbs/1.jpg" alt="">
+										<div class="ln-text">
+											<h6>{{eventItem.name}}</h6>
+											<div class="ln-metas">
+												<div class="ln-meta">{{eventItem.description}}</div><br>
+												<!--if's-->
+												<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
+													<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
+													<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
+													<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Security'">
+													<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
+													<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
+												<!--<span v-if="eventItem.blogLink != 'N/A'">
+													<a :href="eventItem.blogLink">Read Our Blog</a>
+												</span><br>
+												<span v-if="eventItem.eventLink != 'N/A'">
+													<a :href="eventItem.eventLink">Learn More</a>
+												</span>-->
+													</div>
+											</div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -186,10 +187,8 @@
                 },
                 methods:{
                     fetchBlogs: function(){
-						//console.log(window.location.search);
 						const urlParams = new URLSearchParams(window.location.search);
 						const id = urlParams.get('blog');
-						//console.log(id);
                         axios.get('https://capstone-b35a3.firebaseio.com/data/blogs/'+id+'.json').then(res => {
 							console.log(res.data);
 							vm.blog = res.data;
@@ -198,5 +197,27 @@
 				}
             });
 	</script>
+	<script>
+			var urlTwo = 'https://capstone-b35a3.firebaseio.com/data.json';
+			var vmTwo = new Vue({
+				el: '#appTwo',
+				data:{ 
+					eventsArray: [],
+					blogs:[]
+				},
+				created: function(){
+                    this.fetchEvents();
+                },
+                methods:{
+                    fetchEvents: function(){
+                        axios.get(urlTwo).then(
+                            function(res){
+								vmTwo.eventsArray = res.data.events;
+                            }
+                        );
+					}
+				}
+            });
+		</script>
 	</body>
 </html>

@@ -184,7 +184,7 @@ Commom elements
 
 .site-btn:hover {
 	color: #FFFFFF;
-	box-shadow: 10px 5px #353535;
+	box-shadow: 7px 8px #353535;
 }
 
 .site-btn.sb-color {
@@ -510,8 +510,7 @@ Header section
 	font-weight: 700;
 	padding: 3px 16px;
 	margin-bottom: 25px;
-	/*background: #10ddb4;*/
-	background: #33cc33;
+	background-color: #b0b0b0;
 }
 
 .blog-post h3 {
@@ -711,7 +710,7 @@ Header section
 	font-weight: 700;
 	padding: 1px 5px;
 	margin-bottom: 10px;
-	background: #33cc33;;
+	background-color: #b0b0b0;
 }
 
 .latest-news-widget .ln-text h6 {

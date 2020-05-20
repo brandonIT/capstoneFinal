@@ -1,43 +1,223 @@
-<html>
-	<head>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-	</head>
-	<body>
-		<div id="app">
-			<div class="container">
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>Events</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="TheQuest Gaming Magazine Template">
+	<meta name="keywords" content="gaming, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
 
-				<div v-for="(event) in events">
-					<h1>{{event.name}}</h1>
-					<h3>{{event.date}}</h3>
-					<p>{{event.description}}</p>
-					<span v-if="event.blogLink != 'N/A'">
-						<a :href="event.blogLink">Read Our Blog</a>
-					</span>
-					<br>
-					<span v-if="event.eventLink != 'N/A'">
-						<a :href="event.eventLink">Learn More</a>
-					</span>
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/slicknav.min.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="css/style.css"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<a href="index.html" class="site-logo">
+			<img src="img/logoGoodlyDid.png" alt="logo">
+		</a>
+		<ul class="main-menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#body">Programming</a></li>
+			<li><a href="#body">Cloud</a></li>
+			<li><a href="#body">Networking</a></li>
+			<li><a href="#body">Security</a></li>
+			<li><a href="index.html#events">Events</a></li>
+			<li><a href="#body">Blogs</a></li>
+			<li><a href="characters.html">About Us</a></li>
+			<!--single-post.html blogs-->
+		</ul>
+	</header>
+	<!-- Header section end -->
+
+	<!-- Page top section -->
+	<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
+		<div class="container">
+			<h2>Events</h2>
+		</div>
+	</section>
+	<!-- Page top section end -->
+
+		<!-- Blog section -->
+	
+	<section class="blog-section spad" id="body">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div id="app">
+						<div class="blog-post" v-for="event in events">
+							<img :src="event.image">
+							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}</div>
+							<h3>{{event.name}}</h3>
+							<div class="post-metas">
+								<div class="post-meta"></div>
+								<div class="post-meta" v-for="tag in event.tags">
+									<span v-if="tag == 'Programming'">
+										<a href="#" style="color: #5da9e4;">Programming</a>
+									</span>
+									<span v-if="tag == 'Networking'">
+										<a href="#" style="color: #bd9bd2;">Networking</a>
+									</span>
+									<span v-if="tag == 'Cloud'">
+										<a href="#" style="color: #ff5581;">Cloud</a>
+									</span >
+									<span v-if="tag == 'Other'">
+										<a href="#" style="color: #ff94f3;">Other</a>
+									</span>
+									<span v-if="tag == 'Security'">
+										<a href="#" style="color: #33cc33;">Security</a>
+									</span>
+								</div>
+								<!--<div class="post-meta"></div>
+								<p style="font-size: 20px; color: #FFFFFF;">{{blog.description}}</p>
+								<p v-if="blog.blogLink !='N/A'" style="font-size: 20px; color: #FFFFFF;">
+									Read our blog about the event <a :href="event.blogLink"><a class="hoverCarText2" style="cursor: pointer;"><u>here</u></a></a>
+								</p>
+								<div v-if="event.eventLink !='N/A'">
+									<a :href="event.eventLink" class="site-btn">Event Link</a>
+								</div>	-->
+							</div>
+						</div>
+					</div>
 				</div>
+				<br><br>
+				<div class="col-lg-4 sidebar">
+						<div style="position: sticky; top: 15px;">
+							<div class="sb-widget">
+								<h2 class="sb-title">Categories</h2>
+								<ul class="sb-cata-list">
+									<li><a href="#" class="hoverCarText" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
+									<li><a href="#" class="hoverCarText" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
+								</ul>
+							</div>
+							<div class="sb-widget" id="appTwo">
+									<h2 class="sb-title">Upcoming IT Events</h2>
+									<div class="latest-news-widget top-five">
+										<div v-for="eventItem in eventsArray" class="ln-item">
+										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+										<img src="img/blog-thumbs/1.jpg" alt="">
+										<div class="ln-text">
+											<h6>{{eventItem.name}}</h6>
+											<div class="ln-metas">
+												<div class="ln-meta" style="font-size: 20px; color: #FFFFFF;">{{eventItem.description}}</div><br>
+												<!--if's-->
+												<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
+													<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
+													<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
+													<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Security'">
+													<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
+												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
+													<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
+												<!--<span v-if="eventItem.blogLink != 'N/A'">
+													<a :href="eventItem.blogLink">Read Our Blog</a>
+												</span><br>
+												<span v-if="eventItem.eventLink != 'N/A'">
+													<a :href="eventItem.eventLink">Learn More</a>
+												</span>-->
+													</div>
+											</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
+	</section>
+	<!-- Blog section end -->
 
-		<script>
-			var url = 'https://capstone-b35a3.firebaseio.com/data.json';
-			var vm = new Vue({
+	<!-- Footer section -->
+	<div class="footer-section">
+		<div class="container">
+			<center><div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> <a style="cursor: default;">by</a> <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div></center>
+		</div>
+	</div>
+	<!-- Footer section end -->
+															
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+
+	<script>
+		var vm = new Vue({
 				el: '#app',
 				data:{ 
-					events: []
+					blog: Object
+				},
+				created: function(){
+                    this.fetchBlogs();
+                },
+                methods:{
+                    fetchBlogs: function(){
+						const urlParams = new URLSearchParams(window.location.search);
+						const id = urlParams.get('blog');
+                        axios.get('https://capstone-b35a3.firebaseio.com/data/blogs/'+id+'.json').then(res => {
+							console.log(res.data);
+							vm.blog = res.data;
+						});
+					}
+				}
+            });
+	</script>
+	<script>
+			var urlTwo = 'https://capstone-b35a3.firebaseio.com/data.json';
+			var vmTwo = new Vue({
+				el: '#appTwo',
+				data:{ 
+					eventsArray: [],
+					blogs:[]
 				},
 				created: function(){
                     this.fetchEvents();
                 },
                 methods:{
                     fetchEvents: function(){
-                        axios.get(url).then(
+                        axios.get(urlTwo).then(
                             function(res){
-                                console.log(res.data.events);
-                                vm.events = res.data.events;
+								vmTwo.eventsArray = res.data.events;
                             }
                         );
 					}

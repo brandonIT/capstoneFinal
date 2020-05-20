@@ -46,12 +46,12 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="index.html">Home</a></li>
-			<li><a href="#body">Programming</a></li>
-			<li><a href="#body">Cloud</a></li>
-			<li><a href="#body">Networking</a></li>
-			<li><a href="#body">Security</a></li>
+			<li><a href="index.html#programming">Programming</a></li>
+			<li><a href="index.html#cloud">Cloud</a></li>
+			<li><a href="index.html#networking">Networking</a></li>
+			<li><a href="index.html#security">Security</a></li>
 			<li><a href="index.html#events">Events</a></li>
-			<li><a href="#body">Blogs</a></li>
+			<li><a href="news.html">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 			<!--single-post.html blogs-->
 		</ul>
@@ -61,25 +61,26 @@
 	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
 		<div class="container">
-			<h2>Blogs</h2>
+			<h2>Tips & Tricks</h2>
 		</div>
 	</section>
 	<!-- Page top section end -->
 
 		<!-- Blog section -->
 	
-	<section class="blog-section spad" id="body">
+	<section class="blog-section spad">
+		
 		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div id="app">
-						<div class="blog-post" v-for="(event) in events">
-							<img :src="event.image">
-							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
-							<h3>{{event.name}}</h3>
+			<div id="app">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="blog-post" v-for="(blog) in blogs">
+							<img :src="blog.link">
+							<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
+							<h3>{{blog.title}}</h3>
 							<div class="post-metas">
-								<div class="post-meta"></div>
-								<div class="post-meta" v-for="(tag) in events.tags">
+								<div class="post-meta">{{blog.author}}</div>
+								<div class="post-meta" v-for="(tag) in blog.tags">
 									<span v-if="tag == 'Programming'">
 										<a href="#" style="color: #5da9e4;">Programming</a>
 									</span>
@@ -97,79 +98,71 @@
 									</span>
 								</div>
 								<div class="post-meta"></div>
-								<p>{{event.description}}</p>
-								<p v-if="event.blogLink !='N/A'">
-									Read our blog about the event <a :href="event.blogLink"><a class="hoverCarText2" style="cursor: pointer;">here</a></a>
-								</p>
-								<div v-if="event.eventLink !='N/A'">
-									<a :href="event.eventLink" class="site-btn">Event Link</a>
-								</div>	
+								<p>{{blog.exerpt}}</p>
+								<a href="single-post.html?blog=0" class="site-btn">Read More</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<br><br>
 				<div class="col-lg-4 sidebar">
-					<div style="position: sticky; top: 15px;">
-						<div class="sb-widget">
-							<h2 class="sb-title">Categories</h2>
-							<ul class="sb-cata-list">
-								<li><a href="#" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
-								<li><a href="#" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
-								<li><a href="#" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
-								<li><a href="#" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
-								<li><a href="#" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
-							</ul>
-						</div>
-						<div class="sb-widget">
-							<h2 class="sb-title" >Popular Blogs</h2>
-							<div class="latest-news-widget">
-								<div class="ln-item">
-									<img src="img/blog-thumbs/1.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 1</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #5da9e4;">Programming</a></div>
-											<div class="ln-meta"></div>
-										</div>
+					<div class="sb-widget">
+						<h2 class="sb-title">Categories</h2>
+						<ul class="sb-cata-list">
+							<li><a href="#" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
+							<li><a href="#" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
+							<li><a href="#" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
+							<li><a href="#" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
+							<li><a href="#" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
+						</ul>
+					</div>
+					<div class="sb-widget" style="position: sticky; top: 15px;">
+						<h2 class="sb-title">Popular Blogs</h2>
+						<div class="latest-news-widget">
+							<div class="ln-item">
+								<img src="img/blog-thumbs/1.jpg" alt="">
+								<div class="ln-text">
+									<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+									<h6>Post 1</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Author</div>
+										<div class="ln-meta"><a href="#" style="color: #5da9e4;">Programming</a></div>
+										<div class="ln-meta"></div>
 									</div>
 								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/2.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 2</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #ff5581;">Cloud</a></div>
-											<div class="ln-meta"></div>
-										</div>
+							</div>
+							<div class="ln-item">
+								<img src="img/blog-thumbs/2.jpg" alt="">
+								<div class="ln-text">
+									<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+									<h6>Post 2</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Author</div>
+										<div class="ln-meta"><a href="#" style="color: #ff5581;">Cloud</a></div>
+										<div class="ln-meta"></div>
 									</div>
 								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/3.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 3</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #bd9bd2;">Networking</a></div>
-											<div class="ln-meta"></div>
-										</div>
+							</div>
+							<div class="ln-item">
+								<img src="img/blog-thumbs/3.jpg" alt="">
+								<div class="ln-text">
+									<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+									<h6>Post 3</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Author</div>
+										<div class="ln-meta"><a href="#" style="color: #bd9bd2;">Networking</a></div>
+										<div class="ln-meta"></div>
 									</div>
 								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/4.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 4</h6>
-										<div class="ln-metas">
-											<div class="ln-meta">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #33cc33;">Security</a></div>
-											<div class="ln-meta"></div>
-										</div>
+							</div>
+							<div class="ln-item">
+								<img src="img/blog-thumbs/4.jpg" alt="">
+								<div class="ln-text">
+									<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+									<h6>Post 4</h6>
+									<div class="ln-metas">
+										<div class="ln-meta">By Author</div>
+										<div class="ln-meta"><a href="#" style="color: #33cc33;">Security</a></div>
+										<div class="ln-meta"></div>
 									</div>
 								</div>
 							</div>
@@ -205,7 +198,7 @@
 		var vm = new Vue({
 			el: '#app',
 			data:{ 
-				events: [],
+				blogs: [],
 				tags:[]
 			},
 			created: function(){
@@ -215,8 +208,8 @@
 				fetchBlogs: function(){
 					axios.get(url).then(
 						function(res){
-							console.log(res.data.events);
-							vm.events = res.data.events;
+							console.log(res.data.blogs);
+							vm.blogs = res.data.blogs;
 						}
 					);
 				}
