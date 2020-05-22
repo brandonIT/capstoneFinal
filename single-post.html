@@ -69,39 +69,39 @@
 									<!--<img :src="blog.link" alt="">-->
 									<div class="post-date">{{blog.date}}</div>
 									<h3>{{blog.title}}</h3>
-									<div class="post-metas">
-										<div class="post-meta">
-											<div class="ln-meta" v-if="blog.author == 'Brandon'">
-												<a href="byAuthor.html?author=Brandon" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
-											</div>
-											<div class="ln-meta" v-if="blog.author == 'Evan'">
-												<a href="byAuthor.html?author=Evan" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
-											</div>
-											<div class="ln-meta" v-if="blog.author == 'Winter'">
-												<a href="byAuthor.html?author=Winter" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
-											</div>
-										</div>
-										<div class="post-meta">
-											<div v-for="(tag) in blog.tags"><a href="#"></a>
-												<span v-if="tag == 'Programming'">
-												<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">Programming</a>
-												</span>
-												<span v-if="tag == 'Networking'">
-													<a href="#" class="hoverCarText" style="color: #bd9bd2; font-size: 20px;">Networking</a>
-												</span>
-												<span v-if="tag == 'Cloud'">
-													<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;">Cloud</a>
-												</span >
-												<span v-if="tag == 'Other'">
-													<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">Other</a>
-												</span>
-												<span v-if="tag == 'Security'">
-													<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;">Security</a>
-												</span>
-											</div>
-										</div>
-										<div class="post-meta"></div>
-									</div>
+									<div class="post-metas" style="margin-bottom: 0px;">
+								<span class="post-meta" style="font-size: 20px; color: #FFFFFF;">Author:&nbsp;
+									<span class="ln-meta" v-if="blog.author == 'Brandon'">
+										<a href="byAuthor.html?author=Brandon" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+									</span>
+									<span class="ln-meta" v-if="blog.author == 'Evan'">
+										<a href="byAuthor.html?author=Evan" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
+									</span>
+									<span class="ln-meta" v-if="blog.author == 'Winter'">
+										<a href="byAuthor.html?author=Winter" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
+									</span>
+								</span><br>
+								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">Category:&nbsp;
+									<span v-for="(tag) in blog.tags">
+										<span v-if="tag == 'Programming'">
+											<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Networking'">
+											<a href="#" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Cloud'">
+											<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Security'">
+											<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Other'">
+											<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
+										</span>
+									</span>
+								</div>
+								<div class="post-meta"></div>
+							</div>
 									<p style="font-size: 20px; color: #FFFFFF;">{{blog.body}}</p>
 								</div>
 							</div>
