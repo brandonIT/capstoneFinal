@@ -78,22 +78,23 @@
 							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
 							<h3>{{event.name}}</h3>
 							<div class="post-metas">
-								<div class="post-meta"></div>
-								<div class="post-meta" v-for="(tag) in events.tags">
-									<span v-if="tag == 'Programming'">
-										<a href="#" style="color: #5da9e4;">Programming</a>
-									</span>
-									<span v-if="tag == 'Networking'">
-										<a href="#" style="color: #bd9bd2;">Networking</a>
-									</span>
-									<span v-if="tag == 'Cloud'">
-										<a href="#" style="color: #ff5581;">Cloud</a>
-									</span >
-									<span v-if="tag == 'Other'">
-										<a href="#" style="color: #ff94f3;">Other</a>
-									</span>
-									<span v-if="tag == 'Security'">
-										<a href="#" style="color: #33cc33;">Security</a>
+								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">Category:&nbsp;
+									<span v-for="(tag) in event.tags">
+										<span v-if="tag == 'Programming'">
+											<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Networking'">
+											<a href="#" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Cloud'">
+											<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Security'">
+											<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Other'">
+											<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
+										</span>
 									</span>
 								</div>
 								<div class="post-meta"></div>
@@ -121,58 +122,50 @@
 							</ul>
 						</div>
 							<div class="sb-widget">
-							<h2 class="sb-title">Popular Blogs</h2>
+							<h2 class="sb-title">Blogs</h2>
 							<div class="latest-news-widget">
-								<div class="ln-item">
-									<img src="img/blog-thumbs/1.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0; font-size: 20px;"">Post Date</div>
-										<h6>Post 1</h6>
-										<div class="ln-metas">
-											<div class="ln-meta" style="font-size: 20px;">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #5da9e4; font-size: 20px;">Programming</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/2.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 2</h6>
-										<div class="ln-metas">
-											<div class="ln-meta" style="font-size: 20px;">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #ff5581; font-size: 20px;">Cloud</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/3.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 3</h6>
-										<div class="ln-metas">
-											<div class="ln-meta" style="font-size: 20px;">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #bd9bd2; font-size: 20px;">Networking</a></div>
-											<div class="ln-meta"></div>
-										</div>
-									</div>
-								</div>
-								<div class="ln-item">
-									<img src="img/blog-thumbs/4.jpg" alt="">
-									<div class="ln-text">
-										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
-										<h6>Post 4</h6>
-										<div class="ln-metas">
-											<div class="ln-meta" style="font-size: 20px;">By Author</div>
-											<div class="ln-meta"><a href="#" style="color: #33cc33; font-size: 20px;">Security</a></div>
-											<div class="ln-meta"></div>
+								<div id="appTwo">
+									<div class="blog-post" v-for="(blog) in blogs">
+										<img :src="blog.link">
+										<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
+										<h3>{{blog.title}}</h3>
+										<div class="post-metas">
+											<div class="post-meta"></div>
+												<div class="ln-meta" v-if="blog.author == 'Brandon'">
+													<a href="#" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+												</div>
+												<div class="ln-meta" v-if="blog.author == 'Evan'">
+													<a href="#" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
+												</div>
+												<div class="ln-meta" v-if="blog.author == 'Winter'">
+													<a href="#" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
+												</div>
+											</div>
+											<div class="post-meta">
+												<div v-for="(tag) in blog.tags">
+													<span v-if="tag == 'Programming'">
+														<a href="#" style="color: #5da9e4; font-size: 20px;">Programming</a>
+													</span>
+													<span v-if="tag == 'Networking'">
+														<a href="#" style="color: #bd9bd2; font-size: 20px;">Networking</a>
+													</span>
+													<span v-if="tag == 'Cloud'">
+														<a href="#" style="color: #ff5581; font-size: 20px;">Cloud</a>
+													</span >
+													<span v-if="tag == 'Other'">
+														<a href="#" style="color: #ff94f3; font-size: 20px;">Other</a>
+													</span>
+													<span v-if="tag == 'Security'">
+														<a href="#" style="color: #33cc33; font-size: 20px;">Security</a>
+													</span>
+												</div>
+											<div class="post-meta"></div>
+											<p style="font-size: 20px; color: #FFFFFF;">{{blog.exerpt}}</p>
+											<a href="single-post.html?blog=0" class="site-btn">Read More</a>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						</div>
 					</div>
 				</div>
@@ -217,6 +210,29 @@
 						function(res){
 							console.log(res.data.events);
 							vm.events = res.data.events;
+						}
+					);
+				}
+			}
+		});
+	</script>
+	<script>
+		var urlTwo = 'https://capstone-b35a3.firebaseio.com/data.json';
+		var vmTwo = new Vue({
+			el: '#appTwo',
+			data:{ 
+				blogs: [],
+				tags:[]
+			},
+			created: function(){
+				this.fetchBlogs();
+			},
+			methods:{
+				fetchBlogs: function(){
+					axios.get(urlTwo).then(
+						function(res){
+							console.log(res.data.blogs);
+							vmTwo.blogs = res.data.blogs;
 						}
 					);
 				}
