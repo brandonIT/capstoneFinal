@@ -57,8 +57,8 @@
 			<li><a href="blogs.html#body">Cloud</a></li>
 			<li><a href="blogs.html#body">Networking</a></li>
 			<li><a href="blogs.html#body">Security</a></li>
-			<li><a href="#events">Events</a></li>
-			<li><a href="blogs.html#body">Blogs</a></li>
+			<li><a href="events.html">Events</a></li>
+			<li><a href="blogs.html">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 			<!--single-post.html blogs-->
 		</ul>
@@ -112,31 +112,31 @@
 								<!--<div class="post-meta">by&nbsp; - &nbsp;<a href="characters.html#brandon" style="color: rgb(204,119,34)">{{blog.author}}</a></div>-->
 								
 								<div class="ln-meta" v-if="blog.author == 'Brandon'">
-									<a href="#" class="hoverCarText" style="color: rgb(204,119,34);">{{blog.author}}</a>
+									<a href="#" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
 								</div>
 								<div class="ln-meta" v-if="blog.author == 'Evan'">
-									<a href="#" class="hoverCarText" style="color: rgb(170,30,100);">{{blog.author}}</a>
+									<a href="#" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
 								</div>
 								<div class="ln-meta" v-if="blog.author == 'Winter'">
-									<a href="#" class="hoverCarText" style="color: rgb(1,121,111);">{{blog.author}}</a>
+									<a href="#" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
 								</div>
 								
-								<div class="post-meta" style="font-size: 14px; color: #FFFFFF;">category:&nbsp;
+								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">category:&nbsp;
 									<span v-for="(tag) in blog.tags">
 										<span v-if="tag == 'Programming'">
-											<a href="#" class="hoverCarText" style="color: #5da9e4;">{{tag}}</a>
+											<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Networking'">
-											<a href="#" class="hoverCarText" style="color: #bd9bd2;">{{tag}}</a>
+											<a href="#" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Cloud'">
-											<a href="#" class="hoverCarText" style="color: #ff5581;">{{tag}}</a>
+											<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Security'">
-											<a href="#" class="hoverCarText" style="color: #33cc33;">{{tag}}</a>
+											<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Other'">
-											<a href="#" class="hoverCarText" style="color: #ff94f3;">{{tag}}</a>
+											<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
 										</span>
 									</span>
 								</div>
@@ -164,7 +164,7 @@
 							<div class="sb-item">
 								<img src="img/blog-thumbs/6.jpg" alt="">
 								<div class="sb-text">
-									<h6><a href="#body" id="programming" style="font-size: 25px; color: #5da9e4;">Programming</a></h6>
+									<h6><a href="#body" id="programming" class="hoverCarText" style="font-size: 25px; color: #5da9e4;">Programming</a></h6>
 									<div class="sb-metas" style="cursor: default;">
 										<div class="sb-meta" style="cursor: default;"></div>
 										<div class="sb-meta" style="cursor: default;"></div>
@@ -176,7 +176,7 @@
 							<div class="sb-item">
 								<img src="img/blog-thumbs/7.jpg" alt="">
 								<div class="sb-text">
-									<h6><a href="#body" id="cloud" style="font-size: 25px; color: #ff5581;">Cloud</a></h6>
+									<h6><a href="#body" id="cloud" class="hoverCarText" style="font-size: 25px; color: #ff5581;">Cloud</a></h6>
 									<div class="sb-metas" style="cursor: default;">
 										<div class="sb-meta" style="cursor: default;"></div>
 										<div class="sb-meta" style="cursor: default;"></div>
@@ -188,7 +188,7 @@
 							<div class="sb-item">
 								<img src="img/blog-thumbs/8.jpg" alt="">
 								<div class="sb-text">
-									<h6><a href="#body" id="networking" style="font-size: 25px; color: #bd9bd2;">Networking</a></h6>
+									<h6><a href="#body" id="networking" class="hoverCarText" style="font-size: 25px; color: #bd9bd2;">Networking</a></h6>
 									<div class="sb-metas" style="cursor: default;">
 										<div class="sb-meta" style="cursor: default;"></div>
 										<div class="sb-meta" style="cursor: default;"></div>
@@ -200,7 +200,7 @@
 							<div class="sb-item">
 								<img src="img/blog-thumbs/9.jpg" alt="">
 								<div class="sb-text">
-									<h6><a href="#body" id="security" style="font-size: 25px; color: #33cc33;">Security</a></h6>
+									<h6><a href="#body" id="security" class="hoverCarText" style="font-size: 25px; color: #33cc33;">Security</a></h6>
 									<div class="sb-metas" style="cursor: default;">
 										<div class="sb-meta" style="cursor: default;"></div>
 										<div class="sb-meta" style="cursor: default;"></div>

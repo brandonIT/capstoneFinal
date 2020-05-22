@@ -48,7 +48,7 @@
 				<li><a href="blogs.html#body">Cloud</a></li>
 				<li><a href="blogs.html#body">Networking</a></li>
 				<li><a href="blogs.html#body">Security</a></li>
-				<li><a href="index.html#events">Events</a></li>
+				<li><a href="events.html">Events</a></li>
 				<li><a href="blogs.html#body">Blogs</a></li>
 				<li><a href="characters.html">About Us</a></li>
 				<!--single-post.html blogs-->
@@ -60,7 +60,7 @@
 			<!-- Page top section end -->
 
 			<!-- Blog section -->
-			<section class="blog-section spad">
+			<section class="blog-section spad" id="body">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8">
@@ -72,31 +72,31 @@
 									<div class="post-metas">
 										<div class="post-meta">
 											<div class="ln-meta" v-if="blog.author == 'Brandon'">
-												<a href="#" class="hoverCarText" style="color: rgb(204,119,34);">{{blog.author}}</a>
+												<a href="#" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;"">{{blog.author}}</a>
 											</div>
 											<div class="ln-meta" v-if="blog.author == 'Evan'">
-												<a href="#" class="hoverCarText" style="color: rgb(170,30,100);">{{blog.author}}</a>
+												<a href="#" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;"">{{blog.author}}</a>
 											</div>
 											<div class="ln-meta" v-if="blog.author == 'Winter'">
-												<a href="#" class="hoverCarText" style="color: rgb(1,121,111);">{{blog.author}}</a>
+												<a href="#" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;"">{{blog.author}}</a>
 											</div>
 										</div>
 										<div class="post-meta">
 											<div v-for="(tag) in blog.tags"><a href="#"></a>
 												<span v-if="tag == 'Programming'">
-												<a href="#" class="hoverCarText" style="color: #5da9e4;">Programming</a>
+												<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;"">Programming</a>
 												</span>
 												<span v-if="tag == 'Networking'">
-													<a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking</a>
+													<a href="#" class="hoverCarText" style="color: #bd9bd2; font-size: 20px;"">Networking</a>
 												</span>
 												<span v-if="tag == 'Cloud'">
-													<a href="#" class="hoverCarText" style="color: #ff5581;">Cloud</a>
+													<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;"">Cloud</a>
 												</span >
 												<span v-if="tag == 'Other'">
-													<a href="#" class="hoverCarText" style="color: #ff94f3;">Other</a>
+													<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;"">Other</a>
 												</span>
 												<span v-if="tag == 'Security'">
-													<a href="#" class="hoverCarText" style="color: #33cc33;">Security</a>
+													<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;"">Security</a>
 												</span>
 											</div>
 										</div>
@@ -125,20 +125,20 @@
 										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
 										<img src="img/blog-thumbs/1.jpg" alt="">
 										<div class="ln-text">
-											<h6>{{eventItem.name}}</h6>
+											<h6 style="font-size: 22px;">{{eventItem.name}}</h6>
 											<div class="ln-metas">
-												<div class="ln-meta">{{eventItem.description}}</div><br>
+												<div class="ln-meta" style="font-size: 20px;">{{eventItem.description}}</div><br>
 												<!--if's-->
 												<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
-													<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
+													<a href="#" style="color: #5da9e4; font-size: 20px;"">{{eventItem.tag}}</a></div>
 												<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
-													<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
+													<a href="#" style="color: #ff5581; font-size: 20px;"">{{eventItem.tag}}</a></div>
 												<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
-													<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
+													<a href="#" style="color: #bd9bd2; font-size: 20px;"">{{eventItem.tag}}</a></div>
 												<div class="ln-meta" v-if="eventItem.tag == 'Security'">
-													<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
+													<a href="#" style="color: #33cc33; font-size: 20px;"">{{eventItem.tag}}</a></div>
 												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
-													<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
+													<a href="#" style="color: #ff94f3; font-size: 20px;"">{{eventItem.tag}}</a></div>
 												<!--<span v-if="eventItem.blogLink != 'N/A'">
 													<a :href="eventItem.blogLink">Read Our Blog</a>
 												</span><br>

@@ -46,12 +46,12 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="index.html">Home</a></li>
-			<li><a href="#body">Programming</a></li>
-			<li><a href="#body">Cloud</a></li>
-			<li><a href="#body">Networking</a></li>
-			<li><a href="#body">Security</a></li>
-			<li><a href="index.html#events">Events</a></li>
-			<li><a href="#body">Blogs</a></li>
+			<li><a href="blogs.html#body">Programming</a></li>
+			<li><a href="blogs.html#body">Cloud</a></li>
+			<li><a href="blogs.html#body">Networking</a></li>
+			<li><a href="blogs.html#body">Security</a></li>
+			<li><a href="#body">Events</a></li>
+			<li><a href="blogs.html">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 			<!--single-post.html blogs-->
 		</ul>
@@ -73,13 +73,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div id="app">
-						<div class="blog-post" v-for="event in events">
+						<div class="blog-post" v-for="(event) in events">
 							<img :src="event.image">
-							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}</div>
+							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
 							<h3>{{event.name}}</h3>
 							<div class="post-metas">
 								<div class="post-meta"></div>
-								<div class="post-meta" v-for="tag in event.tags">
+								<div class="post-meta" v-for="(tag) in events.tags">
 									<span v-if="tag == 'Programming'">
 										<a href="#" style="color: #5da9e4;">Programming</a>
 									</span>
@@ -96,67 +96,86 @@
 										<a href="#" style="color: #33cc33;">Security</a>
 									</span>
 								</div>
-								<!--<div class="post-meta"></div>
-								<p style="font-size: 20px; color: #FFFFFF;">{{blog.description}}</p>
-								<p v-if="blog.blogLink !='N/A'" style="font-size: 20px; color: #FFFFFF;">
-									Read our blog about the event <a :href="event.blogLink"><a class="hoverCarText2" style="cursor: pointer;"><u>here</u></a></a>
+								<div class="post-meta"></div>
+								<p style="font-size: 20px; color: #FFFFFF;">{{event.description}}</p>
+								<p style="font-size: 20px; color: #FFFFFF;" v-if="event.blogLink !='N/A'">
+									Read our blog about the event <a :href="event.blogLink">here</a>
 								</p>
 								<div v-if="event.eventLink !='N/A'">
-									<a :href="event.eventLink" class="site-btn">Event Link</a>
-								</div>	-->
+									<a :href="event.eventLink" class="site-btn" style="color: 'black';">Event Link</a>
+								</div>	
 							</div>
 						</div>
 					</div>
-				</div>
-				<br><br>
+				</div><br><br>
 				<div class="col-lg-4 sidebar">
-						<div style="position: sticky; top: 15px;">
+					<div style="position: sticky; top: 15px;">
+						<div class="sb-widget">
+							<h2 class="sb-title">Categories</h2>
+							<ul class="sb-cata-list">
+								<li><a href="#" class="hoverCarText" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
+								<li><a href="#" class="hoverCarText" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
+								<li><a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
+								<li><a href="#" class="hoverCarText" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
+								<li><a href="#" class="hoverCarText" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
+							</ul>
+						</div>
 							<div class="sb-widget">
-								<h2 class="sb-title">Categories</h2>
-								<ul class="sb-cata-list">
-									<li><a href="#" class="hoverCarText" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
-									<li><a href="#" class="hoverCarText" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
-									<li><a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
-									<li><a href="#" class="hoverCarText" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
-									<li><a href="#" class="hoverCarText" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
-								</ul>
-							</div>
-							<div class="sb-widget" id="appTwo">
-									<h2 class="sb-title">Upcoming IT Events</h2>
-									<div class="latest-news-widget top-five">
-										<div v-for="eventItem in eventsArray" class="ln-item">
-										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
-										<img src="img/blog-thumbs/1.jpg" alt="">
-										<div class="ln-text">
-											<h6>{{eventItem.name}}</h6>
-											<div class="ln-metas">
-												<div class="ln-meta" style="font-size: 20px; color: #FFFFFF;">{{eventItem.description}}</div><br>
-												<!--if's-->
-												<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
-													<a href="#" style="color: #5da9e4;">{{eventItem.tag}}</a></div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
-													<a href="#" style="color: #ff5581;">{{eventItem.tag}}</a></div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
-													<a href="#" style="color: #bd9bd2;">{{eventItem.tag}}</a></div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Security'">
-													<a href="#" style="color: #33cc33;">{{eventItem.tag}}</a></div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
-													<a href="#" style="color: #ff94f3;">{{eventItem.tag}}</a></div>
-												<!--<span v-if="eventItem.blogLink != 'N/A'">
-													<a :href="eventItem.blogLink">Read Our Blog</a>
-												</span><br>
-												<span v-if="eventItem.eventLink != 'N/A'">
-													<a :href="eventItem.eventLink">Learn More</a>
-												</span>-->
-													</div>
-											</div>
-											</div>
+							<h2 class="sb-title">Popular Blogs</h2>
+							<div class="latest-news-widget">
+								<div class="ln-item">
+									<img src="img/blog-thumbs/1.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date" style="background-color: #b0b0b0; font-size: 20px;"">Post Date</div>
+										<h6>Post 1</h6>
+										<div class="ln-metas">
+											<div class="ln-meta" style="font-size: 20px;">By Author</div>
+											<div class="ln-meta"><a href="#" style="color: #5da9e4; font-size: 20px;">Programming</a></div>
+											<div class="ln-meta"></div>
+										</div>
+									</div>
+								</div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/2.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+										<h6>Post 2</h6>
+										<div class="ln-metas">
+											<div class="ln-meta" style="font-size: 20px;">By Author</div>
+											<div class="ln-meta"><a href="#" style="color: #ff5581; font-size: 20px;">Cloud</a></div>
+											<div class="ln-meta"></div>
+										</div>
+									</div>
+								</div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/3.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+										<h6>Post 3</h6>
+										<div class="ln-metas">
+											<div class="ln-meta" style="font-size: 20px;">By Author</div>
+											<div class="ln-meta"><a href="#" style="color: #bd9bd2; font-size: 20px;">Networking</a></div>
+											<div class="ln-meta"></div>
+										</div>
+									</div>
+								</div>
+								<div class="ln-item">
+									<img src="img/blog-thumbs/4.jpg" alt="">
+									<div class="ln-text">
+										<div class="ln-date" style="background-color: #b0b0b0;">Post Date</div>
+										<h6>Post 4</h6>
+										<div class="ln-metas">
+											<div class="ln-meta" style="font-size: 20px;">By Author</div>
+											<div class="ln-meta"><a href="#" style="color: #33cc33; font-size: 20px;">Security</a></div>
+											<div class="ln-meta"></div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						</div>
 					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -182,47 +201,27 @@
 	<script src="js/main.js"></script>
 
 	<script>
+		var url = 'https://capstone-b35a3.firebaseio.com/data.json';
 		var vm = new Vue({
-				el: '#app',
-				data:{ 
-					blog: Object
-				},
-				created: function(){
-                    this.fetchBlogs();
-                },
-                methods:{
-                    fetchBlogs: function(){
-						const urlParams = new URLSearchParams(window.location.search);
-						const id = urlParams.get('blog');
-                        axios.get('https://capstone-b35a3.firebaseio.com/data/blogs/'+id+'.json').then(res => {
-							console.log(res.data);
-							vm.blog = res.data;
-						});
-					}
+			el: '#app',
+			data:{ 
+				events: [],
+				tags:[]
+			},
+			created: function(){
+				this.fetchBlogs();
+			},
+			methods:{
+				fetchBlogs: function(){
+					axios.get(url).then(
+						function(res){
+							console.log(res.data.events);
+							vm.events = res.data.events;
+						}
+					);
 				}
-            });
+			}
+		});
 	</script>
-	<script>
-			var urlTwo = 'https://capstone-b35a3.firebaseio.com/data.json';
-			var vmTwo = new Vue({
-				el: '#appTwo',
-				data:{ 
-					eventsArray: [],
-					blogs:[]
-				},
-				created: function(){
-                    this.fetchEvents();
-                },
-                methods:{
-                    fetchEvents: function(){
-                        axios.get(urlTwo).then(
-                            function(res){
-								vmTwo.eventsArray = res.data.events;
-                            }
-                        );
-					}
-				}
-            });
-		</script>
 	</body>
 </html>
