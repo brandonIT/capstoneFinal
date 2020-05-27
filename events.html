@@ -46,27 +46,21 @@
 		</a>
 		<ul class="main-menu">
 			<li><a href="index.html">Home</a></li>
-			<li><a href="blogs.html#body">Programming</a></li>
-			<li><a href="blogs.html#body">Cloud</a></li>
-			<li><a href="blogs.html#body">Networking</a></li>
-			<li><a href="blogs.html#body">Security</a></li>
+			<li><a href="byTag.html?tag=Programming#body">Programming</a></li>
+			<li><a href="byTag.html?tag=Cloud#body">Cloud</a></li>
+			<li><a href="byTag.html?tag=Networking#body">Networking</a></li>
+			<li><a href="byTag.html?tag=Security#body">Security</a></li>
 			<li><a href="#body">Events</a></li>
 			<li><a href="blogs.html">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
-			<!--single-post.html blogs-->
 		</ul>
 	</header>
-	<!-- Header section end -->
 
-	<!-- Page top section -->
 	<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
 		<div class="container">
 			<h2>Events</h2>
 		</div>
 	</section>
-	<!-- Page top section end -->
-
-		<!-- Blog section -->
 	
 	<section class="blog-section spad" id="body">
 		<div class="container">
@@ -81,19 +75,19 @@
 								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">Category:&nbsp;
 									<span v-for="(tag) in event.tags">
 										<span v-if="tag == 'Programming'">
-											<a href="#" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
+											<a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Networking'">
-											<a href="#" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
+											<a href="byTag.html?tag=Networking#body" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Cloud'">
-											<a href="#" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
+											<a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Security'">
-											<a href="#" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
+											<a href="byTag.html?tag=Security#body" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
 										</span>
 										<span v-if="tag == 'Other'">
-											<a href="#" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
+											<a href="byTag.html?tag=Other#body" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
 										</span>
 									</span>
 								</div>
@@ -114,11 +108,11 @@
 						<div class="sb-widget">
 							<h2 class="sb-title">Categories</h2>
 							<ul class="sb-cata-list">
-								<li><a href="#" class="hoverCarText" style="color: #5da9e4;">Programming<span style="background-color: #ff5581; color: white;">1</span></a></li>
-								<li><a href="#" class="hoverCarText" style="color: #ff5581;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
-								<li><a href="#" class="hoverCarText" style="color: #bd9bd2;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
-								<li><a href="#" class="hoverCarText" style="color: #33cc33;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
-								<li><a href="#" class="hoverCarText" style="color: #ff94f3;">Other<span style="background-color: #bd9bd2; color: white;">1</span></a></li>
+								<li><a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 18px;">Programming<span style="background-color: #ff5581; color: white;">2</span></a></li>
+								<li><a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 18px;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
+								<li><a href="byTag.html?tag=Networking#body" class="hoverCarText" style="color: #bd9bd2; font-size: 18px;">Networking<span style="background-color: #5da9e4; color: white;">1</span></a></li>
+								<li><a href="byTag.html?tag=Security#body" class="hoverCarText" style="color: #33cc33; font-size: 18px;">Security<span style="background-color: #ff94f3; color: white;">1</span></a></li>
+								<li><a href="byTag.html?tag=Other#body" class="hoverCarText" style="color: #ff94f3; font-size: 18px;">Other<span style="background-color: #bd9bd2; color: white;">3</span></a></li>
 							</ul>
 						</div>
 							<div class="sb-widget">
@@ -132,36 +126,37 @@
 										<div class="post-metas">
 											<div class="post-meta"></div>
 												<div class="ln-meta" v-if="blog.author == 'Brandon'">
-													<a href="#" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+													<a href="byAuthor.html?author=Brandon#body" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
 												</div>
 												<div class="ln-meta" v-if="blog.author == 'Evan'">
-													<a href="#" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
+													<a href="byAuthor.html?author=Evan#body" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
 												</div>
 												<div class="ln-meta" v-if="blog.author == 'Winter'">
-													<a href="#" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
+													<a href="byAuthor.html?author=Winter#body" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
 												</div>
 											</div>
 											<div class="post-meta">
 												<div v-for="(tag) in blog.tags">
-													<span v-if="tag == 'Programming'">
-														<a href="#" style="color: #5da9e4; font-size: 20px;">Programming</a>
-													</span>
-													<span v-if="tag == 'Networking'">
-														<a href="#" style="color: #bd9bd2; font-size: 20px;">Networking</a>
-													</span>
-													<span v-if="tag == 'Cloud'">
-														<a href="#" style="color: #ff5581; font-size: 20px;">Cloud</a>
-													</span >
-													<span v-if="tag == 'Other'">
-														<a href="#" style="color: #ff94f3; font-size: 20px;">Other</a>
-													</span>
-													<span v-if="tag == 'Security'">
-														<a href="#" style="color: #33cc33; font-size: 20px;">Security</a>
-													</span>
+													<div class="ln-meta" v-if="blog.tag == 'Programming'">
+														<a href="byTag.html?tag=Programming#body" style="color: #5da9e4; font-size: 20px;">{{blog.tag}}</a>
+													</div>
+													<div class="ln-meta" v-if="blog.tag == 'Cloud'">
+														<a href="byTag.html?tag=Cloud#body" style="color: #ff5581; font-size: 20px;">{{blog.tag}}</a>
+													</div>
+													<div class="ln-meta" v-if="blog.tag == 'Networking'">
+														<a href="byTag.html?tag=Networking#body" style="color: #bd9bd2; font-size: 20px;">{{blog.tag}}</a>
+													</div>
+													<div class="ln-meta" v-if="blog.tag == 'Security'">
+														<a href="byTag.html?tag=Security#body" style="color: #33cc33; font-size: 20px;">{{blog.tag}}</a>
+													</div>
+													<div class="ln-meta" v-if="blog.tag == 'Other'">
+														<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{blog.tag}}</a>
+													</div>
 												</div>
-											<div class="post-meta"></div>
-											<p style="font-size: 20px; color: #FFFFFF;">{{blog.exerpt}}</p>
-											<a href="single-post.html?blog=0" class="site-btn">Read More</a>
+												<div class="post-meta"></div>
+												<p style="font-size: 20px; color: #FFFFFF;">{{blog.exerpt}}</p>
+												<a href="single-post.html?blog=0" class="site-btn">Read More</a>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -172,9 +167,6 @@
 			</div>
 		</div>
 	</section>
-	<!-- Blog section end -->
-
-	<!-- Footer section -->
 	<div class="footer-section">
 		<div class="container">
 			<center><div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -182,9 +174,6 @@
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div></center>
 		</div>
 	</div>
-	<!-- Footer section end -->
-															
-	<!--====== Javascripts & Jquery ======-->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.slicknav.js"></script>

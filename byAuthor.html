@@ -50,15 +50,14 @@
 			<li><a href="byTag.html?tag=Cloud#body">Cloud</a></li>
 			<li><a href="byTag.html?tag=Networking#body">Networking</a></li>
 			<li><a href="byTag.html?tag=Security#body">Security</a></li>
-			<li><a href="events.html">Events</a></li>
-			<li><a href="#body">Blogs</a></li>
+			<li><a href="events.html#body">Events</a></li>
+			<li><a href="blogs.html#body">Blogs</a></li>
 			<li><a href="characters.html">About Us</a></li>
 		</ul>
 	</header>
 
 	<section class="page-top-section set-bg" data-setbg="img/header-bg/1.jpg">
 		<div class="container">
-			<h2>Blogs</h2>
 		</div>
 	</section>
 
@@ -67,7 +66,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<div id="app">
-						<div class="blog-post featured-post" v-for="(blog) in blogs">
+						<div class="blog-post" v-for="(blog) in blogs">
 							<img :src="blog.link">
 							<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
 							<h3>{{blog.title}}</h3>
@@ -131,27 +130,6 @@
 										<h6 style="font-size: 20px; font-weight: bold;">{{eventItem.name}}</h6>
 										<div class="ln-metas">
 											<div class="ln-meta" style="font-size: 16px; color: #FFFFFF;">{{eventItem.description}}</div><br>
-												<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
-													<a href="byTag.html?tag=Programming#body" style="color: #5da9e4; font-size: 20px;">{{eventItem.tag}}</a>
-												</div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
-													<a href="byTag.html?tag=Cloud#body" style="color: #ff5581; font-size: 20px;">{{eventItem.tag}}</a>
-												</div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
-													<a href="byTag.html?tag=Networking#body" style="color: #bd9bd2; font-size: 20px;">{{eventItem.tag}}</a>
-												</div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Security'">
-													<a href="byTag.html?tag=Security#body" style="color: #33cc33; font-size: 20px;">{{eventItem.tag}}</a>
-												</div>
-												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
-													<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{eventItem.tag}}</a>
-												</div>
-												<!--<span v-if="eventItem.blogLink != 'N/A'">
-													<a :href="eventItem.blogLink">Read Our Blog</a>
-												</span><br>
-												<span v-if="eventItem.eventLink != 'N/A'">
-													<a :href="eventItem.eventLink">Learn More</a>
-												</span>-->
 										</div>
 									</div>
 								</div>
@@ -178,31 +156,33 @@
 	<script src="js/main.js"></script>
 
 	<script>
-		var url = 'https://capstone-b35a3.firebaseio.com/data.json';
 		var vm = new Vue({
 			el: '#app',
 			data:{ 
-				blogs: [],
-				tags:[]
+				blogs:[]
 			},
 			created: function(){
 				this.fetchBlogs();
 			},
 			methods:{
 				fetchBlogs: function(){
+					//console.log(window.location.search);
 					const urlParams = new URLSearchParams(window.location.search);
 					const author = urlParams.get('author');
-					axios.get(url).then(
-						function(res){
-							console.log(res.data.blogs);
-							vm.blogs = res.data.blogs;
-							
-							for (item of result.data) {
+					//vm.person = author
+					console.log(author);
+					//console.log(vm.person);
+					axios({
+						url: 'https://capstone-b35a3.firebaseio.com/data/blogs.json',
+						method: 'get'
+					}).then((result) => {
+ 
+						for (item of result.data) {
 							if (item.author == author) vm.blogs.push(item)
 						}
 						console.log(vm.blogs)
-						}
-					);
+					});
+
 				}
 			}
 		});
