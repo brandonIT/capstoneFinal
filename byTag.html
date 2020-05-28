@@ -67,7 +67,7 @@
 				<div class="col-md-6">
 					<div id="app">
 						<div class="blog-post" v-for="(blog) in blogs">
-							<img :src="blog.link">
+							<img :src="blog.link" :alt="blog.alt">
 							<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
 							<h3>{{blog.title}}</h3>
 							<div class="post-metas" style="margin-bottom: 0px;">
@@ -111,7 +111,7 @@
 				<div class="col-lg-4 sidebar">
 					<div style="position: sticky; top: 15px;">
 						<div class="sb-widget">
-							<h2 class="sb-title">Categories</h2>
+							<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Categories</h2></center>
 							<ul class="sb-cata-list">
 								<li><a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 18px;">Programming<span style="background-color: #ff5581; color: white;">2</span></a></li>
 								<li><a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 18px;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
@@ -121,10 +121,11 @@
 							</ul>
 						</div>
 						<div class="sb-widget" id="appTwo">
-							<h2 class="sb-title">Upcoming IT Events</h2>
+							<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Upcoming IT Events</h2></center>
 							<div class="latest-news-widget top-five">
 								<div v-for="eventItem in eventsArray" class="ln-item">
-									<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+									<div v-if="eventItem.date == 'N/A'" class="ln-index"><center>TBA</center></div>
+									<div v-else class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
 									<img src="img/blog-thumbs/1.jpg" alt="">
 									<div class="ln-text">
 										<h6 style="font-size: 20px; font-weight: bold;">{{eventItem.name}}</h6>

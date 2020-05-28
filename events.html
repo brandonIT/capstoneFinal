@@ -69,7 +69,8 @@
 					<div id="app">
 						<div class="blog-post" v-for="(event) in events">
 							<img :src="event.image">
-							<div class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
+							<div v-if="event.date == 'N/A'" class="ln-index"><center class="post-date" style="background-color: #b0b0b0;">TBA</center></div>
+							<div v-else class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
 							<h3>{{event.name}}</h3>
 							<div class="post-metas">
 								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">Category:&nbsp;
@@ -106,7 +107,7 @@
 				<div class="col-lg-4 sidebar">
 					<div style="position: sticky; top: 15px;">
 						<div class="sb-widget">
-							<h2 class="sb-title">Categories</h2>
+							<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Categories</h2></center>
 							<ul class="sb-cata-list">
 								<li><a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 18px;">Programming<span style="background-color: #ff5581; color: white;">2</span></a></li>
 								<li><a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 18px;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
@@ -116,47 +117,29 @@
 							</ul>
 						</div>
 							<div class="sb-widget">
-							<h2 class="sb-title">Blogs</h2>
-							<div class="latest-news-widget">
+							<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Blogs</h2></center>
+							<div class="latest-news-widget top-five">
 								<div id="appTwo">
-									<div class="blog-post" v-for="(blog) in blogs">
-										<img :src="blog.link">
-										<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
-										<h3>{{blog.title}}</h3>
-										<div class="post-metas">
-											<div class="post-meta"></div>
-												<div class="ln-meta" v-if="blog.author == 'Brandon'">
-													<a href="byAuthor.html?author=Brandon#body" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+									<div v-for="blog in blogs" class="ln-item">
+										<img :src="blog.link" :alt="blog.alt">
+										<div class="ln-text">
+											<h3 style="font-size: 20px; font-weight: bold; color: #FFFFFF;">{{blog.title}}</h3>
+												<div class="post-metas" style="margin-bottom: 0px;">
+													<span class="post-meta" style="font-size: 18px; color: #FFFFFF;">Author:&nbsp;
+														<span class="ln-meta" v-if="blog.author == 'Brandon'">
+															<a href="byAuthor.html?author=Brandon#body" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+														</span>
+														<span class="ln-meta" v-if="blog.author == 'Evan'">
+															<a href="byAuthor.html?author=Evan#body" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
+														</span>
+														<span class="ln-meta" v-if="blog.author == 'Winter'">
+															<a href="byAuthor.html?author=Winter#body" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
+														</span>
+													</span><br>
+													<div class="post-meta"></div>
 												</div>
-												<div class="ln-meta" v-if="blog.author == 'Evan'">
-													<a href="byAuthor.html?author=Evan#body" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
-												</div>
-												<div class="ln-meta" v-if="blog.author == 'Winter'">
-													<a href="byAuthor.html?author=Winter#body" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
-												</div>
-											</div>
-											<div class="post-meta">
-												<div v-for="(tag) in blog.tags">
-													<div class="ln-meta" v-if="blog.tag == 'Programming'">
-														<a href="byTag.html?tag=Programming#body" style="color: #5da9e4; font-size: 20px;">{{blog.tag}}</a>
-													</div>
-													<div class="ln-meta" v-if="blog.tag == 'Cloud'">
-														<a href="byTag.html?tag=Cloud#body" style="color: #ff5581; font-size: 20px;">{{blog.tag}}</a>
-													</div>
-													<div class="ln-meta" v-if="blog.tag == 'Networking'">
-														<a href="byTag.html?tag=Networking#body" style="color: #bd9bd2; font-size: 20px;">{{blog.tag}}</a>
-													</div>
-													<div class="ln-meta" v-if="blog.tag == 'Security'">
-														<a href="byTag.html?tag=Security#body" style="color: #33cc33; font-size: 20px;">{{blog.tag}}</a>
-													</div>
-													<div class="ln-meta" v-if="blog.tag == 'Other'">
-														<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{blog.tag}}</a>
-													</div>
-												</div>
-												<div class="post-meta"></div>
-												<p style="font-size: 20px; color: #FFFFFF;">{{blog.exerpt}}</p>
-												<a href="single-post.html?blog=0" class="site-btn">Read More</a>
-											</div>
+												<p style="font-size: 14px; color: #FFFFFF;">{{blog.exerpt}}</p>
+												<a :href="'single-post.html?blog='+blog.id" :alt="blog.alt" class="site-btn">Read More</a>
 										</div>
 									</div>
 								</div>
