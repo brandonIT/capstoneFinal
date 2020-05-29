@@ -68,7 +68,7 @@
 				<div class="col-md-6">
 					<div id="app">
 						<div class="blog-post" v-for="(event) in events">
-							<img :src="event.image">
+							<img :src="event.image" :alt="event.alt">
 							<div v-if="event.date == 'N/A'" class="ln-index"><center class="post-date" style="background-color: #b0b0b0;">TBA</center></div>
 							<div v-else class="post-date" style="background-color: #b0b0b0;">{{event.date}}/{{event.year}}</div>
 							<h3>{{event.name}}</h3>
