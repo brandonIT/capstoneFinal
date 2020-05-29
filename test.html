@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+	<title>IT Heroes</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="IT Heroes">
+	<meta name="keywords" content="gaming, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Favicon -->
+	<link href="img/favicon.ico" rel="shortcut icon"/>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+	<link rel="stylesheet" href="css/slicknav.min.css"/>
+
+	<!-- Main Stylesheets -->
+	<link rel="stylesheet" href="css/style.css"/>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<style>
+		#stickyMenu
+		{
+			position: sticky;
+			top: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+	<header class="header-section">
+		<a href="index.html" class="site-logo">
+			<img src="img/logoGoodlyDid.png" alt="logo">
+		</a>
+		<ul class="main-menu">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="byTag.html?tag=Programming#body">Programming</a></li>
+			<li><a href="byTag.html?tag=Cloud#body">Cloud</a></li>
+			<li><a href="byTag.html?tag=Networking#body">Networking</a></li>
+			<li><a href="byTag.html?tag=Security#body">Security</a></li>
+			<li><a href="events.html">Events</a></li>
+			<li><a href="blogs.html">Blogs</a></li>
+			<li><a href="characters.html">About Us</a></li>
+		</ul>
+	</header>
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hero-item set-bg" data-setbg="img/slider/1.jpg">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<h2>Enter the Battle</h2>
+							<p style="font-size: 20px; color: #FFFFFF;">Join the fight! The realm of Information Technology has been waiting for your arrival, Hero. Click the button below to begin your quest!</p>
+							<a href="#body" class="site-btn">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hero-item set-bg" data-setbg="img/slider/2.jpg">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10 offset-lg-1">
+							<h2>Enter the Battle</h2>
+							<p style="font-size: 20px; color: #FFFFFF;">Welcome, Adventurer! Feel free to browse our archives to aid you on your journey. Click the button below to begin your quest!</p>
+							<a href="#body" class="site-btn">Read More</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div id="app">
+		<section class="blog-section spad">
+		<center><h3><a href="blogs.html#body" id="blogs" class="hoverCarHeader" style="color: #FFFFFF;">Blogs</a></h3></center><br><br><br><br>
+			<div class="container">
+				<div class="row">
+					<div v-for="(blog) in blogs" class="col-md-6 blog-posts">
+						<div class="blog-post featured-post">
+							<img :src="blog.link" :alt="blog.alt">
+								<div class="post-date" style="background-color: #b0b0b0;">{{blog.date}}</div>
+							<h3>{{blog.title}}</h3>
+							<div class="post-metas" style="margin-bottom: 0px;">
+								<span class="post-meta" style="font-size: 20px; color: #FFFFFF;">Author:&nbsp;
+									<span class="ln-meta" v-if="blog.author == 'Brandon'">
+										<a href="byAuthor.html?author=Brandon#body" class="hoverCarText" style="color: rgb(204,119,34); font-size: 20px;">{{blog.author}}</a>
+									</span>
+									<span class="ln-meta" v-if="blog.author == 'Evan'">
+										<a href="byAuthor.html?author=Evan#body" class="hoverCarText" style="color: rgb(170,30,100); font-size: 20px;">{{blog.author}}</a>
+									</span>
+									<span class="ln-meta" v-if="blog.author == 'Winter'">
+										<a href="byAuthor.html?author=Winter#body" class="hoverCarText" style="color: rgb(1,121,111); font-size: 20px;">{{blog.author}}</a>
+									</span>
+								</span><br>
+								<div class="post-meta" style="font-size: 20px; color: #FFFFFF;">Category:&nbsp;
+									<span v-for="(tag) in blog.tags">
+										<span v-if="tag == 'Programming'">
+											<a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Networking'">
+											<a href="byTag.html?tag=Networking#body" class="hoverCarText" style="color: #bd9bd2 font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Cloud'">
+											<a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Security'">
+											<a href="byTag.html?tag=Security#body" class="hoverCarText" style="color: #33cc33; font-size: 20px;">{{tag}}</a>
+										</span>
+										<span v-if="tag == 'Other'">
+											<a href="byTag.html?tag=Other#body" class="hoverCarText" style="color: #ff94f3; font-size: 20px;">{{tag}}</a>
+										</span>
+									</span>
+								</div>
+								<div class="post-meta"></div>
+							</div>
+							<p style="font-size: 20px; color: #FFFFFF;">{{blog.exerpt}}</p>
+							<a :href="'single-post.html?blog='+blog.id" class="site-btn">Read More</a>
+						</div><br>
+					</div>
+					<div class="sb-widget">
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="blog-list-section spad">
+		<center><h3 id="body" style="color: white;">An Overview of Information Technology</h3></center><br><br><br><br>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="small-blog-list">
+							<div class="sb-item">
+								<img src="img/blog-thumbs/6.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="byTag.html?tag=Programming#body" id="programming" class="hoverCarText" style="font-size: 25px; color: #5da9e4;">Programming</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px; color: #FFFFFF;">The new languages of the Internet. From simple buttons on webpages to full fledged video games, programming is what makes the wheels turn.</p>
+								</div>
+							</div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/7.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="byTag.html?tag=Cloud#body" id="cloud" class="hoverCarText" style="font-size: 25px; color: #ff5581;">Cloud</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px; color: #FFFFFF;">Instantly control thousands of servers. Netflix, Hulu, and Disney Plus live in the cloud. Pay for the servers you control by the second.</p>
+								</div>
+							</div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/8.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="byTag.html?tag=Networking#body" id="networking" class="hoverCarText" style="font-size: 25px; color: #bd9bd2;">Networking</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px; color: #FFFFFF;">The circuits and steel of all technology. The body that the code brings to life. The bridges of all information. Cabling and physical objects/devices.</p>
+								</div>
+							</div>
+							<div class="sb-item">
+								<img src="img/blog-thumbs/9.jpg" alt="">
+								<div class="sb-text">
+									<h6><a href="byTag.html?tag=Security#body" id="security" class="hoverCarText" style="font-size: 25px; color: #33cc33;">Security</a></h6>
+									<div class="sb-metas" style="cursor: default;">
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+										<div class="sb-meta" style="cursor: default;"></div>
+									</div>
+									<p style="font-size: 20px; color: #FFFFFF;">The  Gatekeepers and Hackers. Good versus Evil. The frontlines of protection. The constant war waged across the whole Internet.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="sb-widget" id="stickyMenu">
+							<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Upcoming IT Events</h2></center>
+							<div class="latest-news-widget top-five">
+											<div v-for="eventItem in eventsArray" class="ln-item">
+												<div v-if="eventItem.date == 'N/A'" class="ln-index"><center>TBA</center></div>
+												<div v-else class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+												<img src="img/blog-thumbs/1.jpg" alt="">
+												<div class="ln-text">
+													<h6 style="font-size: 20px; font-weight: bold;">{{eventItem.name}}</h6>
+													<div class="ln-metas">
+														<div class="ln-meta" style="font-size: 16px; color: #FFFFFF;">{{eventItem.description}}
+														</div><br>
+															<div class="ln-meta" v-if="eventItem.tag == 'Programming'">
+																<a href="byTag.html?tag=Programming#body" style="color: #5da9e4; font-size: 20px;">{{eventItem.tag}}</a>
+															</div>
+															<div class="ln-meta" v-if="eventItem.tag == 'Cloud'">
+																<a href="byTag.html?tag=Cloud#body" style="color: #ff5581; font-size: 20px;">{{eventItem.tag}}</a>
+															</div>
+															<div class="ln-meta" v-if="eventItem.tag == 'Networking'">
+																<a href="byTag.html?tag=Networking#body" style="color: #bd9bd2; font-size: 20px;">{{eventItem.tag}}</a>
+															</div>
+															<div class="ln-meta" v-if="eventItem.tag == 'Security'">
+																<a href="byTag.html?tag=Security#body" style="color: #33cc33; font-size: 20px;">{{eventItem.tag}}</a>
+															</div>
+															<div class="ln-meta" v-if="eventItem.tag == 'Other'">
+																<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{eventItem.tag}}</a>
+															</div>
+													<!--<span v-if="eventItem.blogLink != 'N/A'">
+														<a :href="eventItem.blogLink">Read Our Blog</a>
+													</span><br>
+													<span v-if="eventItem.eventLink != 'N/A'">
+														<a :href="eventItem.eventLink">Learn More</a>
+													</span>-->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="footer-section">
+		<div class="container">
+			<center><div class="copyright"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> <a style="cursor: default;">by</a> <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div></center>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+			var url = 'https://capstone-b35a3.firebaseio.com/data.json';
+			var vm = new Vue({
+				el: '#app',
+				data:{ 
+					eventsArray: [],
+					blogs:[],
+					message: "hello"
+				},
+				created: function(){
+                    this.fetchEvents();
+                },
+                methods:{
+                    fetchEvents: function(){
+                        axios.get(url).then(
+                            function(res){
+                                /*console.log(res.data.events);*/
+								vm.eventsArray = res.data.events;
+								vm.blogs = res.data.blogs;
+                            }
+                        );
+					}
+				}
+            });
+		</script>
+
+	</body>
+</html>
