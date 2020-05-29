@@ -126,11 +126,17 @@
 								<div v-for="eventItem in eventsArray" class="ln-item">
 									<div v-if="eventItem.date == 'N/A'" class="ln-index"><center>TBA</center></div>
 									<div v-else class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
-									<img src="img/blog-thumbs/1.jpg" alt="">
+									<img :src="eventItem.icon" :alt="eventItem.alt">
 									<div class="ln-text">
 										<h6 style="font-size: 20px; font-weight: bold;">{{eventItem.name}}</h6>
 										<div class="ln-metas">
 											<div class="ln-meta" style="font-size: 16px; color: #FFFFFF;">{{eventItem.description}}</div><br>
+											<span v-if="eventItem.blogLink != 'N/A'">
+												<a :href="eventItem.blogLink">Read Our Blog</a>
+											</span><br>
+											<span v-if="eventItem.eventLink != 'N/A'">
+												<a :href="eventItem.eventLink">Learn More</a>
+											</span>
 										</div>
 									</div>
 								</div>
