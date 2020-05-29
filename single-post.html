@@ -117,7 +117,7 @@
 									<div class="latest-news-widget top-five">
 										<div v-for="eventItem in eventsArray" class="ln-item">
 										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
-										<img src="img/blog-thumbs/1.jpg" alt="">
+										<img :src="eventItem.icon" :alt="eventItem.alt">
 										<div class="ln-text">
 											<h6 style="font-size: 22px; font-weight: bold;">{{eventItem.name}}</h6>
 											<div class="ln-metas">
@@ -132,12 +132,12 @@
 													<a href="byTag.html?tag=Security#body" style="color: #33cc33; font-size: 20px;">{{eventItem.tag}}</a></div>
 												<div class="ln-meta" v-if="eventItem.tag == 'Other'">
 													<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{eventItem.tag}}</a></div>
-												<!--<span v-if="eventItem.blogLink != 'N/A'">
+												<span v-if="eventItem.blogLink != 'N/A'">
 													<a :href="eventItem.blogLink">Read Our Blog</a>
 												</span><br>
 												<span v-if="eventItem.eventLink != 'N/A'">
 													<a :href="eventItem.eventLink">Learn More</a>
-												</span>-->
+												</span>
 													</div>
 											</div>
 											</div>
