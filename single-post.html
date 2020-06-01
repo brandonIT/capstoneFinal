@@ -96,14 +96,14 @@
 								</div>
 								<div class="post-meta"></div>
 							</div>
-									<p style="font-size: 16px; color: #FFFFFF;">{{blog.body}}</p>
+									<div v-html="blog.body"></div>
 								</div>
 							</div>
 						</div>
 					<div class="col-lg-4 sidebar">
 						<div style="position: sticky; top: 15px;">
 							<div class="sb-widget">
-								<h2 class="sb-title">Categories</h2>
+								<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Categories</h2></center>
 								<ul class="sb-cata-list">
 									<li><a href="byTag.html?tag=Programming#body" class="hoverCarText" style="color: #5da9e4; font-size: 18px;">Programming<span style="background-color: #ff5581; color: white;">2</span></a></li>
 									<li><a href="byTag.html?tag=Cloud#body" class="hoverCarText" style="color: #ff5581; font-size: 18px;">Cloud<span style="background-color: #10ddb4; color: white;">1</span></a></li>
@@ -113,10 +113,11 @@
 								</ul>
 							</div>
 							<div class="sb-widget" id="appTwo">
-									<h2 class="sb-title">Upcoming IT Events</h2>
+									<center><h2 class="sb-title" style="margin-bottom: 20px; font-weight: bold; color: #bbbbbb; font-size: 22px;">Upcoming IT Events</h2></center><br>
 									<div class="latest-news-widget top-five">
 										<div v-for="eventItem in eventsArray" class="ln-item">
-										<div class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
+											<div v-if="eventItem.date == 'N/A'" class="ln-index"><center>TBA</center></div>
+											<div v-else class="ln-index"><center>{{eventItem.date}}<br>{{eventItem.year}}</center></div>
 										<img :src="eventItem.icon" :alt="eventItem.alt">
 										<div class="ln-text">
 											<h6 style="font-size: 22px; font-weight: bold;">{{eventItem.name}}</h6>
@@ -134,11 +135,10 @@
 													<a href="byTag.html?tag=Other#body" style="color: #ff94f3; font-size: 20px;">{{eventItem.tag}}</a></div>
 												<span v-if="eventItem.blogLink != 'N/A'">
 													<a :href="eventItem.blogLink">Read Our Blog</a>
-												</span><br>
+												</span><br></div>
 												<span v-if="eventItem.eventLink != 'N/A'">
-													<a :href="eventItem.eventLink" class="hoverCarText">Learn More</a>
+													<a :href="eventItem.eventLink" class="site-btn">Learn More</a><br><br>
 												</span>
-													</div>
 											</div>
 											</div>
 										</div>
